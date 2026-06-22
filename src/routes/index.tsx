@@ -127,6 +127,14 @@ function Home() {
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.search.includes("submitted=true")) {
       setShowThankYou(true);
+      // Trigger Google Ads conversion event on successful redirect
+      if (typeof (window as any).gtag === "function") {
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'AW-18263908422/kEj-CNjp68McEMbA9IRE',
+          'value': 1.0,
+          'currency': 'INR'
+        });
+      }
     }
   }, []);
 
