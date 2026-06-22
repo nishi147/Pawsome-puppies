@@ -4,7 +4,7 @@ import {
   Heart, PawPrint, Menu, X, Phone, Mail, MapPin, Clock,
   ShieldCheck, Stethoscope, Award, Truck, Headphones, Tag,
   Star, ArrowRight, MessageCircle, Facebook, Instagram, Twitter,
-  ChevronLeft, ChevronRight, Quote,
+  ChevronLeft, ChevronRight, Quote, ChevronUp,
 } from "lucide-react";
 
 import hero1 from "@/assets/hero-1.jpg";
@@ -352,16 +352,20 @@ function Home() {
                   <img src={p.img} alt={p.breed} loading="lazy" width={800} height={800}
                     className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 </div>
-                <div className="p-6 flex flex-col justify-between h-[180px]">
+                <div className="p-6 flex flex-col justify-between h-[190px]">
                   <div>
                     <h3 className="font-display text-2xl font-black text-foreground group-hover:text-primary transition-colors">{p.breed}</h3>
                     <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{p.desc}</p>
                   </div>
-                  <div className="mt-4">
+                  <div className="mt-4 flex gap-3">
+                    <a href="tel:+916302231051"
+                      className="inline-flex items-center justify-center gap-2 flex-1 rounded-xl border border-neutral-300 bg-white text-black py-2.5 text-xs sm:text-sm font-bold shadow-sm hover:bg-neutral-50 transition-colors">
+                      <Phone className="h-4 w-4" /> Call Now
+                    </a>
                     <a href={waLink(`Hi! I'm interested in a ${p.breed} puppy.`)}
                       target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 w-full rounded-full bg-[color:var(--whatsapp)] text-white py-3 text-sm font-semibold hover:opacity-90 transition-opacity shadow-sm">
-                      <MessageCircle className="h-4 w-4 animate-wiggle" /> Contact via WhatsApp
+                      className="inline-flex items-center justify-center gap-2 flex-1 rounded-xl bg-[#25D366] text-white py-2.5 text-xs sm:text-sm font-bold shadow-sm hover:opacity-90 transition-opacity">
+                      <MessageCircle className="h-4 w-4 fill-white text-white" /> WhatsApp Now
                     </a>
                   </div>
                 </div>
@@ -669,10 +673,40 @@ function Home() {
         href={waLink("Hi! I'd love to know more about your puppies.")}
         target="_blank" rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-20 right-6 z-50 grid place-items-center h-14 w-14 rounded-full bg-[color:var(--whatsapp)] text-white shadow-card animate-pulse-ring hover:scale-110 transition-transform"
+        className="fixed bottom-8 right-6 z-50 hidden md:grid place-items-center h-14 w-14 rounded-full bg-[color:var(--whatsapp)] text-white shadow-card animate-pulse-ring hover:scale-110 transition-transform"
       >
         <MessageCircle className="h-7 w-7" />
       </a>
+
+      {/* Mobile Bottom Navigation Bar */}
+      <div className="fixed bottom-0 inset-x-0 z-50 md:hidden px-4 pb-4 pt-2 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none">
+        <div className="mx-auto max-w-md w-full bg-white text-black rounded-full shadow-[0_-8px_30px_rgb(0,0,0,0.12)] border border-neutral-100 flex items-center justify-between px-8 py-2.5 pointer-events-auto">
+          {/* Call Us */}
+          <a href="tel:+916302231051" className="flex flex-col items-center gap-1 group">
+            <span className="grid place-items-center h-10 w-10 rounded-full bg-[#00c853] text-white shadow-sm group-hover:scale-105 transition-transform">
+              <Phone className="h-5 w-5 fill-white text-white" />
+            </span>
+            <span className="text-[10px] font-bold tracking-tight text-neutral-600">Call Us</span>
+          </a>
+
+          {/* Scroll to Top */}
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="grid place-items-center h-10 w-10 rounded-full border border-neutral-200 bg-white text-neutral-600 shadow-md hover:scale-105 active:scale-95 transition-transform -translate-y-2"
+            aria-label="Scroll to top"
+          >
+            <ChevronUp className="h-5 w-5" />
+          </button>
+
+          {/* WhatsApp */}
+          <a href={waLink("Hi! I'd love to know more about your puppies.")} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 group">
+            <span className="grid place-items-center h-10 w-10 rounded-full bg-[#25D366] text-white shadow-sm group-hover:scale-105 transition-transform">
+              <MessageCircle className="h-5 w-5 fill-white text-white" />
+            </span>
+            <span className="text-[10px] font-bold tracking-tight text-neutral-600">Whatsapp</span>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
