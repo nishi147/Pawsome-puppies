@@ -61,17 +61,27 @@ const slides = [
 ];
 
 type Puppy = {
-  id: number; name: string; breed: string; age: string;
-  gender: "Male" | "Female"; price: number; img: string; desc: string;
+  id: number; breed: string; gender: "Male" | "Female";
+  price: number; img: string; desc: string;
 };
 
 const puppies: Puppy[] = [
-  { id: 1, name: "Biscuit", breed: "Labrador", age: "8 weeks", gender: "Male", price: 850, img: puppy1, desc: "Playful and friendly, loves cuddles and treats." },
-  { id: 2, name: "Luna", breed: "Husky", age: "10 weeks", gender: "Female", price: 1200, img: puppy2, desc: "Striking blue eyes and a heart of gold." },
-  { id: 3, name: "Mocha", breed: "French Bulldog", age: "9 weeks", gender: "Male", price: 1500, img: puppy3, desc: "Charming, calm, and absolutely adorable." },
-  { id: 4, name: "Daisy", breed: "Shih Tzu", age: "7 weeks", gender: "Female", price: 950, img: puppy4, desc: "Tiny, fluffy, and full of personality." },
-  { id: 5, name: "Rex", breed: "German Shepherd", age: "11 weeks", gender: "Male", price: 1100, img: puppy5, desc: "Smart, loyal and ready to learn." },
-  { id: 6, name: "Peanut", breed: "Pug", age: "8 weeks", gender: "Male", price: 800, img: puppy6, desc: "A wrinkly little bundle of joy." },
+  { id: 1, breed: "Labrador", gender: "Male", price: 850, img: puppy1, desc: "Playful, friendly, and intelligent family companion." },
+  { id: 2, breed: "Husky", gender: "Female", price: 1200, img: puppy2, desc: "Striking blue eyes and a loyal, high-energy companion." },
+  { id: 3, breed: "French Bulldog", gender: "Male", price: 1500, img: puppy3, desc: "Charming, adaptable, calm, and absolutely adorable." },
+  { id: 4, breed: "Shih Tzu", gender: "Female", price: 950, img: puppy4, desc: "Tiny, affectionate, fluffy, and great for apartments." },
+  { id: 5, breed: "German Shepherd", gender: "Male", price: 1100, img: puppy5, desc: "Smart, alert, courageous, and highly protective guardian." },
+  { id: 6, breed: "Pug", gender: "Male", price: 800, img: puppy6, desc: "Wrinkly bundle of joy, loving, and extremely playful." },
+  { id: 7, breed: "Golden Retriever", gender: "Male", price: 1300, img: tImage1, desc: "Gentle, eager-to-please, smart, and perfect for families." },
+  { id: 8, breed: "Beagle", gender: "Female", price: 900, img: tImage5, desc: "Curious, merry, loving, and excellent track companion." },
+  { id: 9, breed: "Tibetan Mastiff", gender: "Male", price: 2500, img: tImage6, desc: "Noble, independent, extremely protective, and large-sized." },
+  { id: 10, breed: "Bichon Frisé", gender: "Female", price: 1150, img: tImage7, desc: "Hypoallergenic coat, cheerful, outgoing, and loves attention." },
+  { id: 11, breed: "Toy Poodle", gender: "Female", price: 1400, img: tImage4, desc: "Exceptionally smart, highly active, proud, and easy to train." },
+  { id: 12, breed: "Maltese", gender: "Female", price: 1050, img: tImage9, desc: "Gentle, playful, affectionate, with a beautiful white coat." },
+  { id: 13, breed: "Maltipoo", gender: "Male", price: 1250, img: tImage11, desc: "Affectionate designer breed, friendly, and very adaptive." },
+  { id: 14, breed: "Dachshund", gender: "Male", price: 950, img: tImage8, desc: "Lively, clever, courageous, and famously shape-distinctive." },
+  { id: 15, breed: "Akita", gender: "Female", price: 1800, img: puppy2, desc: "Dignified, courageous, quiet, and deeply loyal to families." },
+  { id: 16, breed: "Chow Chow", gender: "Male", price: 1600, img: tImage10, desc: "Dignified, bear-like appearance, independent, and quiet." },
 ];
 
 const features = [
@@ -328,30 +338,19 @@ function Home() {
             {puppies.map((p, idx) => (
               <article key={p.id} style={{ transitionDelay: `${idx * 80}ms` }} className="reveal group rounded-3xl bg-card shadow-soft hover:shadow-card transition-all hover:-translate-y-2 hover:rotate-[-0.5deg] duration-500 overflow-hidden border border-border">
                 <div className="relative aspect-square overflow-hidden">
-                  <img src={p.img} alt={p.name} loading="lazy" width={800} height={800}
+                  <img src={p.img} alt={p.breed} loading="lazy" width={800} height={800}
                     className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <span className="absolute top-4 left-4 rounded-full bg-card/90 backdrop-blur px-3 py-1 text-xs font-bold">
-                    {p.gender}
-                  </span>
-                  <span className="absolute top-4 right-4 rounded-full bg-foreground text-background px-3 py-1 text-sm font-black">
-                    ${p.price}
-                  </span>
                 </div>
-                <div className="p-6">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-display text-2xl font-black">{p.name}</h3>
-                    <span className="text-xs text-muted-foreground">{p.age}</span>
+                <div className="p-6 flex flex-col justify-between h-[180px]">
+                  <div>
+                    <h3 className="font-display text-2xl font-black text-foreground group-hover:text-primary transition-colors">{p.breed}</h3>
+                    <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{p.desc}</p>
                   </div>
-                  <p className="text-sm font-semibold text-primary">{p.breed}</p>
-                  <p className="mt-3 text-sm text-muted-foreground">{p.desc}</p>
-                  <div className="mt-5 flex gap-2">
-                    <button className="flex-1 rounded-full bg-secondary text-secondary-foreground py-2.5 text-sm font-semibold hover:bg-foreground hover:text-background transition-colors">
-                      View Details
-                    </button>
-                    <a href={waLink(`Hi! I'm interested in ${p.name} (${p.breed}).`)}
+                  <div className="mt-4">
+                    <a href={waLink(`Hi! I'm interested in a ${p.breed} puppy.`)}
                       target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 flex-1 rounded-full bg-[color:var(--whatsapp)] text-white py-2.5 text-sm font-semibold hover:opacity-90 transition-opacity">
-                      <MessageCircle className="h-4 w-4" /> WhatsApp
+                      className="inline-flex items-center justify-center gap-2 w-full rounded-full bg-[color:var(--whatsapp)] text-white py-3 text-sm font-semibold hover:opacity-90 transition-opacity shadow-sm">
+                      <MessageCircle className="h-4 w-4 animate-wiggle" /> Contact via WhatsApp
                     </a>
                   </div>
                 </div>
@@ -565,8 +564,8 @@ function Home() {
             <div className="mt-8 space-y-4">
               {[
                 { Icon: Phone, t: "+91 6302231051" },
-                { Icon: Mail, t: "hello@pawsomepuppies.com" },
-                { Icon: MapPin, t: "123 Puppy Lane, Loveville" },
+                { Icon: Mail, t: "puppiespawsome6@gmail.com" },
+                { Icon: MapPin, t: "Dwarka, sec 10, New Delhi" },
                 { Icon: Clock, t: "Mon–Sun · 9am – 7pm" },
               ].map(({ Icon, t }, i) => (
                 <div key={i} className="flex items-center gap-4 rounded-2xl bg-card border border-border p-4 shadow-soft">
@@ -644,8 +643,8 @@ function Home() {
             <h4 className="font-bold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-background/70">
               <li>+91 6302231051</li>
-              <li>hello@pawsomepuppies.com</li>
-              <li>123 Puppy Lane, Loveville</li>
+              <li>puppiespawsome6@gmail.com</li>
+              <li>Dwarka, sec 10, New Delhi</li>
             </ul>
           </div>
         </div>
@@ -659,7 +658,7 @@ function Home() {
         href={waLink("Hi! I'd love to know more about your puppies.")}
         target="_blank" rel="noopener noreferrer"
         aria-label="Chat on WhatsApp"
-        className="fixed bottom-6 right-6 z-50 grid place-items-center h-14 w-14 rounded-full bg-[color:var(--whatsapp)] text-white shadow-card animate-pulse-ring hover:scale-110 transition-transform"
+        className="fixed bottom-20 right-6 z-50 grid place-items-center h-14 w-14 rounded-full bg-[color:var(--whatsapp)] text-white shadow-card animate-pulse-ring hover:scale-110 transition-transform"
       >
         <MessageCircle className="h-7 w-7" />
       </a>
