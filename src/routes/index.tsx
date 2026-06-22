@@ -30,6 +30,17 @@ import tImage9 from "@/assets/9.jpeg";
 import tImage10 from "@/assets/10.jpeg";
 import tImage11 from "@/assets/11.jpeg";
 
+import goldenRetriever from "@/assets/golden-retriever.png";
+import beagle from "@/assets/beagle.png";
+import tibetanMastiff from "@/assets/tibetan-mastiff.png";
+import bichonFrise from "@/assets/bichon-frise.png";
+import toyPoodle from "@/assets/toy-poodle.png";
+import maltese from "@/assets/maltese.png";
+import maltipoo from "@/assets/maltipoo.png";
+import dachshund from "@/assets/dachshund.png";
+import akita from "@/assets/akita.png";
+import chowChow from "@/assets/chow-chow.png";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -72,16 +83,16 @@ const puppies: Puppy[] = [
   { id: 4, breed: "Shih Tzu", gender: "Female", price: 950, img: puppy4, desc: "Tiny, affectionate, fluffy, and great for apartments." },
   { id: 5, breed: "German Shepherd", gender: "Male", price: 1100, img: puppy5, desc: "Smart, alert, courageous, and highly protective guardian." },
   { id: 6, breed: "Pug", gender: "Male", price: 800, img: puppy6, desc: "Wrinkly bundle of joy, loving, and extremely playful." },
-  { id: 7, breed: "Golden Retriever", gender: "Male", price: 1300, img: tImage1, desc: "Gentle, eager-to-please, smart, and perfect for families." },
-  { id: 8, breed: "Beagle", gender: "Female", price: 900, img: tImage5, desc: "Curious, merry, loving, and excellent track companion." },
-  { id: 9, breed: "Tibetan Mastiff", gender: "Male", price: 2500, img: tImage6, desc: "Noble, independent, extremely protective, and large-sized." },
-  { id: 10, breed: "Bichon Frisé", gender: "Female", price: 1150, img: tImage7, desc: "Hypoallergenic coat, cheerful, outgoing, and loves attention." },
-  { id: 11, breed: "Toy Poodle", gender: "Female", price: 1400, img: tImage4, desc: "Exceptionally smart, highly active, proud, and easy to train." },
-  { id: 12, breed: "Maltese", gender: "Female", price: 1050, img: tImage9, desc: "Gentle, playful, affectionate, with a beautiful white coat." },
-  { id: 13, breed: "Maltipoo", gender: "Male", price: 1250, img: tImage11, desc: "Affectionate designer breed, friendly, and very adaptive." },
-  { id: 14, breed: "Dachshund", gender: "Male", price: 950, img: tImage8, desc: "Lively, clever, courageous, and famously shape-distinctive." },
-  { id: 15, breed: "Akita", gender: "Female", price: 1800, img: puppy2, desc: "Dignified, courageous, quiet, and deeply loyal to families." },
-  { id: 16, breed: "Chow Chow", gender: "Male", price: 1600, img: tImage10, desc: "Dignified, bear-like appearance, independent, and quiet." },
+  { id: 7, breed: "Golden Retriever", gender: "Male", price: 1300, img: goldenRetriever, desc: "Gentle, eager-to-please, smart, and perfect for families." },
+  { id: 8, breed: "Beagle", gender: "Female", price: 900, img: beagle, desc: "Curious, merry, loving, and excellent track companion." },
+  { id: 9, breed: "Tibetan Mastiff", gender: "Male", price: 2500, img: tibetanMastiff, desc: "Noble, independent, extremely protective, and large-sized." },
+  { id: 10, breed: "Bichon Frisé", gender: "Female", price: 1150, img: bichonFrise, desc: "Hypoallergenic coat, cheerful, outgoing, and loves attention." },
+  { id: 11, breed: "Toy Poodle", gender: "Female", price: 1400, img: toyPoodle, desc: "Exceptionally smart, highly active, proud, and easy to train." },
+  { id: 12, breed: "Maltese", gender: "Female", price: 1050, img: maltese, desc: "Gentle, playful, affectionate, with a beautiful white coat." },
+  { id: 13, breed: "Maltipoo", gender: "Male", price: 1250, img: maltipoo, desc: "Affectionate designer breed, friendly, and very adaptive." },
+  { id: 14, breed: "Dachshund", gender: "Male", price: 950, img: dachshund, desc: "Lively, clever, courageous, and famously shape-distinctive." },
+  { id: 15, breed: "Akita", gender: "Female", price: 1800, img: akita, desc: "Dignified, courageous, quiet, and deeply loyal to families." },
+  { id: 16, breed: "Chow Chow", gender: "Male", price: 1600, img: chowChow, desc: "Dignified, bear-like appearance, independent, and quiet." },
 ];
 
 const features = [
