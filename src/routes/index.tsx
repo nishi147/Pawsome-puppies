@@ -4,6 +4,7 @@ import {
   Heart, PawPrint, Menu, X, Phone, Mail, MapPin, Clock,
   ShieldCheck, Stethoscope, Award, Truck, Headphones, Tag,
   Star, ArrowRight, MessageCircle, Facebook, Instagram, Twitter,
+  ChevronLeft, ChevronRight, Quote,
 } from "lucide-react";
 
 import hero1 from "@/assets/hero-1.jpg";
@@ -17,22 +18,46 @@ import puppy5 from "@/assets/puppy-5.jpg";
 import puppy6 from "@/assets/puppy-6.jpg";
 import aboutImg from "@/assets/about.jpg";
 
+import tImage1 from "@/assets/1.jpeg";
+import tImage2 from "@/assets/2.jpeg";
+import tImage3 from "@/assets/3.jpeg";
+import tImage4 from "@/assets/4.jpeg";
+import tImage5 from "@/assets/5.jpeg";
+import tImage6 from "@/assets/6.jpeg";
+import tImage7 from "@/assets/7.jpeg";
+import tImage8 from "@/assets/8.jpeg";
+import tImage9 from "@/assets/9.jpeg";
+import tImage10 from "@/assets/10.jpeg";
+import tImage11 from "@/assets/11.jpeg";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pawfect Pups — Find Your Perfect Furry Friend" },
+      { title: "Pawsome Puppies — Find Your Perfect Furry Friend" },
       { name: "description", content: "Healthy, vaccinated puppies from trusted breeders. Browse our adorable puppies and bring home happiness today." },
     ],
   }),
   component: Home,
 });
 
-const WHATSAPP = "15551234567";
+const WHATSAPP = "916302231051";
 
 const slides = [
-  { img: hero1, title: "Find Your Perfect Furry Friend", sub: "Browse healthy and adorable puppies waiting for a home." },
-  { img: hero2, title: "Bring Happiness Home", sub: "Trusted breeders. Healthy puppies. Lifelong love." },
-  { img: hero3, title: "Cute Puppies Waiting For You", sub: "Find your new best friend today." },
+  { 
+    img: hero1, 
+    title: "Find Your Perfect Furry Friend", 
+    sub: "Adopt healthy, vaccinated, and certified puppies from India's most trusted ethical breeders. We bring veterinary-certified joy directly to your doorstep with 100% health guarantees and lifetime support." 
+  },
+  { 
+    img: hero2, 
+    title: "Bring Genuine Happiness Home", 
+    sub: "Every puppy deserves a loving forever home. We work with certified, transparent breeders to ensure you get a happy, active, and socialized new family member. Start your beautiful companionship journey today." 
+  },
+  { 
+    img: hero3, 
+    title: "Cute & Healthy Pups Await You", 
+    sub: "Browse our hand-raised Golden Retrievers, playful Labradors, charming Huskies, and adorable Shih Tzus. Your dream puppy is just a quick WhatsApp chat away with safe, direct delivery across India." 
+  },
 ];
 
 type Puppy = {
@@ -59,18 +84,60 @@ const features = [
 ];
 
 const testimonials = [
-  { name: "Emma Carter", text: "Adopting Biscuit was the best decision. The team was amazing!", img: puppy1 },
-  { name: "James Wilson", text: "Luna arrived healthy and happy. Truly trustworthy breeders.", img: puppy2 },
-  { name: "Sofia Martinez", text: "Mocha brought so much joy to our family. Highly recommend!", img: puppy3 },
+  { name: "Aarav Sharma", role: "Milo's Owner", text: "Adopting Milo was the best decision! He's brought so much laughter and playfulness into our house. The process was super smooth.", img: tImage1, breed: "Golden Retriever" },
+  { name: "Priyanka Patel", role: "Bella's Family", text: "Pawsome Puppies is fantastic. Bella came home vet-checked, fully vaccinated, and socialized. Thank you so much!", img: tImage2, breed: "Labrador" },
+  { name: "Rohan Mehta", role: "Oliver's Mom", text: "Our little Frenchie, Oliver, is the star of the neighborhood. Extremely healthy and well-behaved. Highly recommended!", img: tImage3, breed: "French Bulldog" },
+  { name: "Ananya Iyer", role: "Teddy's Dad", text: "The team was supportive throughout the transition. Teddy is our dream puppy. The post-adoption advice was invaluable.", img: tImage4, breed: "Poodle" },
+  { name: "Arjun Verma", role: "Daisy's Parent", text: "We are in love with Daisy. She's incredibly smart, active, and loves kids. A perfect addition to our family!", img: tImage5, breed: "Beagle" },
+  { name: "Neha Gupta", role: "Rocky's Companion", text: "So grateful to Pawsome Puppies. Rocky is our protector and best friend. Excellent support even after adoption!", img: tImage6, breed: "German Shepherd" },
+  { name: "Vikram Singh", role: "Lily's Owner", text: "Unbelievably happy with the entire process. Lily is active, affectionate, and so healthy. She is a bundle of joy.", img: tImage7, breed: "Shih Tzu" },
+  { name: "Kavita Rao", role: "Coco's Dad", text: "Coco has been with us for a month and is doing wonderful. Vet confirmed he's in perfect shape. Thanks Pawsome Puppies!", img: tImage8, breed: "Pug" },
+  { name: "Aditya Joshi", role: "Leo's Mom", text: "A five-star experience! From consultation to delivery, everything was handled professionally. Leo is a pure joy.", img: tImage9, breed: "Cocker Spaniel" },
+  { name: "Riya Sen", role: "Maggie's Family", text: "Maggie has completed our family. She loves running in the backyard and snuggling with us in the evening.", img: tImage10, breed: "Husky" },
+  { name: "Ishaan Malhotra", role: "Winston's Parent", text: "Healthy, happy, and so energetic! Winston is the best puppy we could have ever asked for. The process was stress-free.", img: tImage11, breed: "Boxer" },
 ];
 
 function Home() {
   const [slide, setSlide] = useState(0);
   const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [breed, setBreed] = useState("All");
-  const [gender, setGender] = useState("All");
-  const [maxPrice, setMaxPrice] = useState(1600);
+
+  // Testimonials Slider State
+  const [tIndex, setTIndex] = useState(0);
+  const [tVisibleCount, setTVisibleCount] = useState(3);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setTVisibleCount(1);
+      } else if (window.innerWidth < 1024) {
+        setTVisibleCount(2);
+      } else {
+        setTVisibleCount(3);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxTIndex = testimonials.length - tVisibleCount;
+
+  // Auto-scroll logic (resets the timer when user interacts or tIndex changes)
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setTIndex((prev) => (prev >= maxTIndex ? 0 : prev + 1));
+    }, 6000);
+    return () => clearInterval(interval);
+  }, [maxTIndex, isPaused, tIndex]);
+
+  useEffect(() => {
+    if (tIndex > maxTIndex) {
+      setTIndex(Math.max(0, maxTIndex));
+    }
+  }, [maxTIndex, tIndex]);
 
   useEffect(() => {
     const t = setInterval(() => setSlide((s) => (s + 1) % slides.length), 5500);
@@ -112,15 +179,6 @@ function Home() {
     return () => window.removeEventListener("mousemove", onMove);
   }, []);
 
-  const breeds = useMemo(() => ["All", ...Array.from(new Set(puppies.map((p) => p.breed)))], []);
-
-  const filtered = puppies.filter(
-    (p) =>
-      (breed === "All" || p.breed === breed) &&
-      (gender === "All" || p.gender === gender) &&
-      p.price <= maxPrice,
-  );
-
   const waLink = (msg: string) =>
     `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
 
@@ -137,7 +195,7 @@ function Home() {
             <span className="grid place-items-center h-10 w-10 rounded-2xl bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-soft group-hover:scale-110 transition-transform">
               <PawPrint className="h-5 w-5" />
             </span>
-            <span className="font-display text-xl font-black tracking-tight">Pawfect Pups</span>
+            <span className="font-display text-xl font-black tracking-tight">Pawsome Puppies</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm font-semibold">
             {[
@@ -211,7 +269,7 @@ function Home() {
         <div className="relative z-10 mx-auto max-w-7xl h-full px-5 sm:px-8 flex items-center">
           <div key={slide} className="max-w-2xl animate-fade-up">
             <span className="inline-flex items-center gap-2 rounded-full bg-card/80 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary shadow-soft animate-slide-left">
-              <PawPrint className="h-3.5 w-3.5 animate-wiggle" /> Pawfect Pups
+              <PawPrint className="h-3.5 w-3.5 animate-wiggle" /> Pawsome Puppies
             </span>
             <h1 className="mt-5 font-display text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] animate-slide-left" style={{ animationDelay: "0.1s" }}>
               <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent animate-gradient">
@@ -266,32 +324,8 @@ function Home() {
             <p className="mt-4 text-muted-foreground">Each puppy is health-checked, vaccinated, and ready to fill your home with love.</p>
           </div>
 
-          {/* Filters */}
-          <div className="glass-card rounded-3xl p-5 sm:p-6 grid sm:grid-cols-3 gap-4 mb-10 shadow-soft reveal reveal-d1">
-            <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Breed</label>
-              <select value={breed} onChange={(e) => setBreed(e.target.value)}
-                className="mt-1 w-full rounded-xl bg-background border border-border px-4 py-3 font-medium">
-                {breeds.map((b) => <option key={b}>{b}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Gender</label>
-              <select value={gender} onChange={(e) => setGender(e.target.value)}
-                className="mt-1 w-full rounded-xl bg-background border border-border px-4 py-3 font-medium">
-                {["All", "Male", "Female"].map((g) => <option key={g}>{g}</option>)}
-              </select>
-            </div>
-            <div>
-              <label className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Max Price: ${maxPrice}</label>
-              <input type="range" min={500} max={1600} step={50} value={maxPrice}
-                onChange={(e) => setMaxPrice(Number(e.target.value))}
-                className="mt-4 w-full accent-[color:var(--primary)]" />
-            </div>
-          </div>
-
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
-            {filtered.map((p, idx) => (
+            {puppies.map((p, idx) => (
               <article key={p.id} style={{ transitionDelay: `${idx * 80}ms` }} className="reveal group rounded-3xl bg-card shadow-soft hover:shadow-card transition-all hover:-translate-y-2 hover:rotate-[-0.5deg] duration-500 overflow-hidden border border-border">
                 <div className="relative aspect-square overflow-hidden">
                   <img src={p.img} alt={p.name} loading="lazy" width={800} height={800}
@@ -324,9 +358,6 @@ function Home() {
               </article>
             ))}
           </div>
-          {filtered.length === 0 && (
-            <p className="text-center text-muted-foreground mt-8">No puppies match your filters yet.</p>
-          )}
         </div>
       </section>
 
@@ -391,26 +422,135 @@ function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="py-24 bg-gradient-to-b from-secondary/40 to-background">
+      <section className="py-24 bg-gradient-to-b from-secondary/40 to-background overflow-hidden">
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14 reveal">
-            <span className="text-xs font-bold uppercase tracking-widest text-primary">Happy Hearts</span>
-            <h2 className="mt-3 text-4xl sm:text-5xl font-black">What Our Families Say</h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14 reveal">
+            <div>
+              <span className="text-xs font-bold uppercase tracking-widest text-primary">Happy Hearts</span>
+              <h2 className="mt-3 text-4xl sm:text-5xl font-black">What Our Families Say</h2>
+            </div>
+            <p className="text-muted-foreground max-w-md md:text-right">
+              Over 1000+ happy puppies placed in loving forever homes. Here is what some of our wonderful families have to say.
+            </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((t, i) => (
-              <div key={i} style={{ transitionDelay: `${i * 100}ms` }} className="reveal group rounded-3xl bg-card border border-border p-7 shadow-soft hover:shadow-card hover:-translate-y-2 transition-all duration-500">
-                <div className="flex gap-1 text-[color:var(--accent)]">
-                  {[...Array(5)].map((_, j) => <Star key={j} className="h-4 w-4 fill-current" />)}
+
+          <div 
+            className="relative overflow-hidden py-4 -mx-3 px-3"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <div 
+              className="flex transition-transform duration-[800ms] ease-in-out"
+              style={{ 
+                transform: `translateX(-${tIndex * (100 / tVisibleCount)}%)`
+              }}
+            >
+              {testimonials.map((t, i) => (
+                <div 
+                  key={i} 
+                  className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3"
+                >
+                  <div className="relative group h-full rounded-3xl bg-card/60 backdrop-blur-md border border-border/80 p-5 shadow-soft hover:shadow-card-hover hover:border-primary/45 hover:-translate-y-2 transition-all duration-500 flex flex-col overflow-hidden min-h-[460px]">
+                    {/* Glowing highlight background on hover */}
+                    <div className="absolute -inset-px bg-gradient-to-br from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 rounded-3xl transition-opacity duration-500 pointer-events-none" />
+                    
+                    {/* Big Prominent Image with Top alignment focus */}
+                    <div className="relative overflow-hidden w-full h-64 rounded-2xl border border-border/50 shadow-sm flex-shrink-0 mb-5">
+                      <img 
+                        src={t.img} 
+                        alt={t.name} 
+                        loading="lazy"
+                        className="h-full w-full object-cover object-[center_15%] group-hover:scale-105 transition-transform duration-700 ease-out" 
+                      />
+                      {/* Breed Badge overlay on image */}
+                      <span className="absolute bottom-3 left-3 bg-background/80 backdrop-blur-md border border-border/50 px-3.5 py-1 rounded-full text-xs font-bold text-primary shadow-sm">
+                        {t.breed}
+                      </span>
+                    </div>
+
+                    {/* Card Content */}
+                    <div className="relative z-10 flex-grow flex flex-col justify-between">
+                      <div>
+                        {/* Rating stars & Quote */}
+                        <div className="flex justify-between items-center mb-4">
+                          <div className="flex gap-1 text-[color:var(--accent)]">
+                            {[...Array(5)].map((_, j) => (
+                              <Star 
+                                key={j} 
+                                className="h-4 w-4 fill-current group-hover:scale-115 group-hover:rotate-[12deg] transition-transform duration-300"
+                                style={{ transitionDelay: `${j * 40}ms` }}
+                              />
+                            ))}
+                          </div>
+                          <Quote className="h-8 w-8 text-primary/10 group-hover:text-primary/20 transition-colors duration-300" />
+                        </div>
+                        
+                        {/* Testimonial text */}
+                        <p className="text-foreground/80 leading-relaxed text-sm sm:text-base italic line-clamp-4 group-hover:text-foreground transition-colors duration-300">
+                          "{t.text}"
+                        </p>
+                      </div>
+
+                      {/* User Info Footer */}
+                      <div className="mt-5 pt-4 border-t border-border/40 flex items-center justify-between">
+                        <div>
+                          <p className="font-bold text-foreground group-hover:text-primary transition-colors duration-300 leading-tight">
+                            {t.name}
+                          </p>
+                          <p className="text-xs text-muted-foreground font-semibold mt-1">
+                            {t.role}
+                          </p>
+                        </div>
+                        <span className="h-7 w-7 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-300">
+                          <Heart className="h-3.5 w-3.5 fill-current" />
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <p className="mt-4 text-foreground/90 leading-relaxed">"{t.text}"</p>
-                <div className="mt-6 flex items-center gap-3">
-                  <img src={t.img} alt={t.name} loading="lazy" width={48} height={48}
-                    className="h-12 w-12 rounded-full object-cover" />
-                  <p className="font-bold">{t.name}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Prev / Next controls and indicator dots */}
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mt-8">
+            {/* Dots */}
+            <div className="flex gap-2">
+              {[...Array(maxTIndex + 1)].map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setTIndex(i)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    tIndex === i ? "w-8 bg-primary" : "w-2.5 bg-border hover:bg-muted-foreground/30"
+                  }`}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Buttons */}
+            <div className="flex gap-3">
+              <button
+                onClick={() => setTIndex((prev) => Math.max(0, prev - 1))}
+                disabled={tIndex === 0}
+                className={`grid place-items-center h-10 w-10 rounded-full border border-border bg-card shadow-soft hover:bg-accent/10 transition-all ${
+                  tIndex === 0 ? "opacity-40 cursor-not-allowed" : "hover:-translate-x-0.5 active:scale-95"
+                }`}
+                aria-label="Previous testimonials"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={() => setTIndex((prev) => Math.min(maxTIndex, prev + 1))}
+                disabled={tIndex >= maxTIndex}
+                className={`grid place-items-center h-10 w-10 rounded-full border border-border bg-card shadow-soft hover:bg-accent/10 transition-all ${
+                  tIndex >= maxTIndex ? "opacity-40 cursor-not-allowed" : "hover:translate-x-0.5 active:scale-95"
+                }`}
+                aria-label="Next testimonials"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -424,8 +564,8 @@ function Home() {
             <p className="mt-4 text-muted-foreground">Reach out — we'd love to help you find your perfect pup.</p>
             <div className="mt-8 space-y-4">
               {[
-                { Icon: Phone, t: "+1 (555) 123-4567" },
-                { Icon: Mail, t: "hello@pawfectpups.com" },
+                { Icon: Phone, t: "+91 6302231051" },
+                { Icon: Mail, t: "hello@pawsomepuppies.com" },
                 { Icon: MapPin, t: "123 Puppy Lane, Loveville" },
                 { Icon: Clock, t: "Mon–Sun · 9am – 7pm" },
               ].map(({ Icon, t }, i) => (
@@ -473,7 +613,7 @@ function Home() {
               <span className="grid place-items-center h-10 w-10 rounded-2xl bg-gradient-to-br from-primary to-accent">
                 <PawPrint className="h-5 w-5 text-primary-foreground" />
               </span>
-              <span className="font-display text-xl font-black">Pawfect Pups</span>
+              <span className="font-display text-xl font-black">Pawsome Puppies</span>
             </div>
             <p className="mt-4 text-sm text-background/70">Where every puppy finds a loving forever home.</p>
             <div className="mt-5 flex gap-3">
@@ -503,14 +643,14 @@ function Home() {
           <div>
             <h4 className="font-bold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-background/70">
-              <li>+1 (555) 123-4567</li>
-              <li>hello@pawfectpups.com</li>
+              <li>+91 6302231051</li>
+              <li>hello@pawsomepuppies.com</li>
               <li>123 Puppy Lane, Loveville</li>
             </ul>
           </div>
         </div>
         <div className="mx-auto max-w-7xl px-5 sm:px-8 mt-12 pt-6 border-t border-background/10 text-center text-sm text-background/60">
-          © {new Date().getFullYear()} Pawfect Pups. Made with <Heart className="inline h-3.5 w-3.5 text-[color:var(--blush)] fill-current" /> for puppies.
+          © {new Date().getFullYear()} Pawsome Puppies. Made with <Heart className="inline h-3.5 w-3.5 text-[color:var(--blush)] fill-current" /> for puppies.
         </div>
       </footer>
 
