@@ -306,9 +306,10 @@ function Home() {
                 View Puppies
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a href="#contact"
+              <a href={waLink("Hi! I'd love to know more about your puppies.")}
+                target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-card/90 backdrop-blur text-foreground px-7 py-3.5 font-semibold border border-border hover:bg-secondary hover:-translate-y-1 transition-all duration-300">
-                Contact Us
+                <MessageCircle className="h-4 w-4 text-[#25D366] fill-[#25D366]" /> WhatsApp Us
               </a>
             </div>
           </div>
