@@ -4,7 +4,7 @@ import {
   Heart, PawPrint, Menu, X, Phone, Mail, MapPin, Clock,
   ShieldCheck, Stethoscope, Award, Truck, Headphones, Tag,
   Star, ArrowRight, MessageCircle, Facebook, Instagram, Twitter,
-  ChevronLeft, ChevronRight, Quote, ChevronUp,
+  ChevronLeft, ChevronRight, Quote, ChevronUp, ChevronDown, Plus, Minus,
 } from "lucide-react";
 
 import hero1 from "@/assets/hero-1.jpg";
@@ -44,8 +44,10 @@ import chowChow from "@/assets/chow-chow.png";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Pawsome Puppies — Find Your Perfect Furry Friend" },
-      { name: "description", content: "Healthy, vaccinated puppies from trusted breeders. Browse our adorable puppies and bring home happiness today." },
+      { title: "Pawsome Puppies — Healthy Puppies for Sale in Delhi NCR" },
+      { name: "description", content: "Looking for puppies for sale in Delhi NCR? Buy healthy, vaccinated, KCI-certified puppies in Delhi, Gurgaon, Noida, Ghaziabad & Faridabad. Connect with ethical dog breeders. Call +91 6302231051." },
+      { name: "keywords", content: "pawsome, pawsome puppies, pawsome puppies delhi, pawsome puppies gurgaon, pawsome puppies noida, pawsome pet shop, puppy for sale in Delhi NCR, puppies for sale in Delhi NCR, buy puppies in Delhi, buy puppy in Delhi, dog breeder in Delhi NCR, dog breeders in Gurgaon, puppies for sale in Gurgaon, puppy shop in Noida, dog shop in Delhi, pet shop in Dwarka New Delhi, ethical dog breeders Delhi, certified puppies in Delhi, buy Labrador in Delhi, buy Golden Retriever in Delhi NCR, Shih Tzu puppy price in Delhi, Toy Poodle price in Delhi NCR" },
+      { name: "robots", content: "index, follow" }
     ],
   }),
   component: Home,
@@ -118,11 +120,146 @@ const testimonials = [
   { name: "Ishaan Malhotra", role: "Winston's Parent", text: "Healthy, happy, and so energetic! Winston is the best puppy we could have ever asked for. The process was stress-free.", img: tImage11, breed: "Boxer" },
 ];
 
+const SEO_SCHEMAS = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "PetStore",
+      "@id": "https://pawsome-puppies.vercel.app/#petstore",
+      "name": "Pawsome Puppies Delhi NCR",
+      "image": "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/92e47f73-5e0a-46cd-9d36-5ef1c29309d3/id-preview-4c2e6649--36188f29-26f1-43f2-b2f5-0ad148d6bd21.lovable.app-1782141240154.png",
+      "url": "https://pawsome-puppies.vercel.app/",
+      "telephone": "+916302231051",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Dwarka, sec 10",
+        "addressLocality": "New Delhi",
+        "addressRegion": "Delhi NCR",
+        "postalCode": "110075",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 28.5823,
+        "longitude": 77.0597
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday"
+        ],
+        "opens": "09:00",
+        "closes": "19:00"
+      },
+      "sameAs": [
+        "https://facebook.com/pawsomepuppies",
+        "https://instagram.com/pawsomepuppies",
+        "https://twitter.com/pawsomepuppies"
+      ],
+      "areaServed": [
+        "Delhi",
+        "New Delhi",
+        "Gurugram",
+        "Gurgaon",
+        "Noida",
+        "Greater Noida",
+        "Ghaziabad",
+        "Faridabad",
+        "Dwarka",
+        "Saket",
+        "Rohini"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://pawsome-puppies.vercel.app/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How to buy a puppy in Delhi NCR from Pawsome Puppies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To buy a puppy in Delhi NCR, simply view our available breeds, click Call or WhatsApp to chat with us, choose your favorite puppy, and we will guide you through registration, KCI-certification check, health validation, and safe home delivery across Delhi, Gurgaon, Noida, Ghaziabad, and Faridabad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I find ethical dog breeders in Gurgaon or Noida?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pawsome Puppies works exclusively with certified, ethical dog breeders in Gurgaon, Noida, and the wider Delhi NCR. We pre-vet all breeders to ensure all puppies are raised in hygienic environments, socialized, and veterinary-checked from day one."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the average puppy price in Delhi NCR for different breeds?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The puppy price in Delhi NCR varies by breed, lineage, and registration. Typically, Labrador and Beagle puppies range from ₹25,000 to ₹45,000, Shih Tzu and Pug puppies from ₹30,000 to ₹50,000, and premium breeds like Toy Poodles, French Bulldogs, or Golden Retrievers range higher. Contact us for precise pricing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are the puppies vaccinated and KCI registered?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, all our purebred puppies for sale in Delhi NCR are vaccinated, dewormed, and come with their health certificates. We also facilitate KCI-registered puppies from top show-line breeders with complete pedigree records."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you provide home delivery for puppies in Dwarka, Noida Extension, and Indirapuram?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely! We provide safe, air-conditioned doorstep pet home delivery across Delhi NCR, including Dwarka, Janakpuri, Rohini, Saket, Gurgaon DLF, Noida Extension, and Indirapuram Ghaziabad."
+          }
+        }
+      ]
+    }
+  ]
+};
+
+const faqs = [
+  {
+    q: "How can I buy a puppy in Delhi NCR from Pawsome Puppies?",
+    a: "Buying a puppy with us is simple: browse our available puppies online, contact us via Call (+91 6302231051) or WhatsApp, choose your breed (like Golden Retriever, Labrador, Toy Poodle, etc.), inspect veterinary certificates, and arrange safe, climate-controlled home delivery directly to your doorstep in Delhi, Gurgaon, Noida, Ghaziabad, or Faridabad."
+  },
+  {
+    q: "Where do you source your puppies? Are they from ethical dog breeders?",
+    a: "Yes! All our puppies come from pre-verified, KCI-certified, and ethical dog breeders in Delhi NCR. We do not work with puppy mills or backyard breeders. Every parent dog is kept in clean, social, and healthy conditions, ensuring high breed standard genetics and great temperament."
+  },
+  {
+    q: "What is the average puppy price in Delhi NCR?",
+    a: "The puppy price in Delhi NCR varies by breed and lineage. Healthy, purebred puppies like Labradors, Beagles, and German Shepherds typically start around ₹20,000 to ₹35,000. Premium and toy breeds like Toy Poodles, French Bulldogs, Bichon Frises, and Shih Tzus range from ₹30,000 to ₹60,000+. KCI-registered and imported lines may command higher prices."
+  },
+  {
+    q: "Are the puppies vaccinated and vet-checked?",
+    a: "Absolutely. Every puppy is vet-checked by certified veterinarians from day one. They are dewormed on schedule and receive age-appropriate vaccinations. We hand over a complete medical health chart, vaccination record, and a written health guarantee at the time of adoption."
+  },
+  {
+    q: "Do you offer pet shop services or a physical dog shop in Dwarka or South Delhi?",
+    a: "Yes, our central operational hub is in Dwarka, New Delhi. While you can view available puppies on our website and coordinate online, we also support safe pet clinic consulting and home visits by appointment to ensure full transparency."
+  },
+  {
+    q: "Which puppy breeds are best for apartments in Noida and Gurgaon?",
+    a: "For apartment living in Gurgaon and Noida, small-sized low-shedding or hypoallergenic toy breeds are ideal. We highly recommend Shih Tzus, Toy Poodles, Maltipoos, Maltese, Pug, and Bichon Frises. They adapt wonderfully to indoor living and require moderate exercise."
+  }
+];
+
 function Home() {
   const [slide, setSlide] = useState(0);
   const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [showGuide, setShowGuide] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.search.includes("submitted=true")) {
@@ -176,43 +313,51 @@ function Home() {
   }, [maxTIndex, tIndex]);
 
   useEffect(() => {
-    const t = setInterval(() => setSlide((s) => (s + 1) % slides.length), 5500);
-    return () => clearInterval(t);
+    if (typeof window !== "undefined") {
+      const t = setInterval(() => setSlide((s) => (s + 1) % slides.length), 5500);
+      return () => clearInterval(t);
+    }
   }, []);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    if (typeof window !== "undefined") {
+      const onScroll = () => setScrolled(window.scrollY > 30);
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => window.removeEventListener("scroll", onScroll);
+    }
   }, []);
 
   // Scroll reveal observer
   useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in-view");
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
-    );
-    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    if (typeof window !== "undefined") {
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in-view");
+              io.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+      return () => io.disconnect();
+    }
   }, []);
 
   // Mouse parallax for hero decorations
   const [parallax, setParallax] = useState({ x: 0, y: 0 });
   useEffect(() => {
-    const onMove = (e: MouseEvent) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 20;
-      const y = (e.clientY / window.innerHeight - 0.5) * 20;
-      setParallax({ x, y });
-    };
-    window.addEventListener("mousemove", onMove);
-    return () => window.removeEventListener("mousemove", onMove);
+    if (typeof window !== "undefined") {
+      const onMove = (e: MouseEvent) => {
+        const x = (e.clientX / window.innerWidth - 0.5) * 20;
+        const y = (e.clientY / window.innerHeight - 0.5) * 20;
+        setParallax({ x, y });
+      };
+      window.addEventListener("mousemove", onMove);
+      return () => window.removeEventListener("mousemove", onMove);
+    }
   }, []);
 
   const waLink = (msg: string) =>
@@ -220,6 +365,10 @@ function Home() {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SEO_SCHEMAS) }}
+      />
       {/* NAV */}
       <header
         className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
@@ -412,6 +561,55 @@ function Home() {
         </div>
       </section>
 
+      {/* SERVICE AREAS */}
+      <section id="locations" className="py-24 bg-card/45 backdrop-blur-sm border-y border-border animate-fade-in">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14 reveal">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">Delhi NCR Coverage</span>
+            <h2 className="mt-3 text-4xl sm:text-5xl font-black">Serving All of Delhi NCR</h2>
+            <p className="mt-4 text-muted-foreground">We connect loving homes with certified, vaccinated puppies through safe doorstep pet home delivery in all major regions.</p>
+          </div>
+          <div className="grid grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-6">
+            {[
+              {
+                region: "Delhi / New Delhi",
+                areas: "Dwarka, Saket, Rohini, Vasant Kunj, Janakpuri, Pitampura",
+                highlight: "Local Pet Shop Dwarka & South Delhi hubs. 24-hour home delivery."
+              },
+              {
+                region: "Gurugram (Gurgaon)",
+                areas: "DLF Phase 1-5, Golf Course Road, Sohna Road, Sector 56",
+                highlight: "Verified dog breeders Gurgaon network. Premium KCI registered puppies."
+              },
+              {
+                region: "Noida / Greater Noida",
+                areas: "Sector 62, Sector 50, Noida Extension, Greater Noida West",
+                highlight: "Ethical puppy shop Noida connection. Health-certified toy breeds."
+              },
+              {
+                region: "Ghaziabad",
+                areas: "Indirapuram, Vaishali, Vasundhara, Kavi Nagar",
+                highlight: "Pet store Indirapuram partnerships. Purebred puppies for sale."
+              },
+              {
+                region: "Faridabad & Surrounds",
+                areas: "Sector 15, Sector 21, Bahadurgarh, Sonepat",
+                highlight: "Safe climate-controlled transit & home delivery puppy Delhi NCR service."
+              }
+            ].map((loc, i) => (
+              <div key={i} style={{ transitionDelay: `${i * 80}ms` }} className="reveal group rounded-2xl sm:rounded-3xl bg-card border border-border p-4 sm:p-6 shadow-soft hover:shadow-card hover:-translate-y-2 transition-all duration-500">
+                <div className="grid place-items-center h-10 w-10 sm:h-12 sm:w-12 rounded-xl sm:rounded-2xl bg-primary/10 text-primary group-hover:bg-primary group-hover:to-accent group-hover:text-primary-foreground transition-all">
+                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6 group-hover:animate-float" />
+                </div>
+                <h3 className="mt-4 sm:mt-5 font-display text-sm sm:text-lg font-black text-foreground group-hover:text-primary transition-colors">{loc.region}</h3>
+                <p className="mt-1 sm:mt-2 text-[10px] sm:text-xs font-semibold text-primary">{loc.areas}</p>
+                <p className="mt-2 sm:mt-3 text-[10px] sm:text-xs leading-relaxed text-muted-foreground">{loc.highlight}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ABOUT */}
       <section id="about" className="py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 grid lg:grid-cols-2 gap-12 items-center">
@@ -582,6 +780,116 @@ function Home() {
               </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section id="faq" className="py-24 bg-secondary/35 border-t border-border">
+        <div className="mx-auto max-w-4xl px-5 sm:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-14 reveal">
+            <span className="text-xs font-bold uppercase tracking-widest text-primary">Got Questions?</span>
+            <h2 className="mt-3 text-4xl sm:text-5xl font-black font-display text-foreground">Frequently Asked Questions</h2>
+            <p className="mt-4 text-muted-foreground text-sm">Everything you need to know about buying or adopting a puppy in Delhi NCR.</p>
+          </div>
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div 
+                  key={idx} 
+                  style={{ transitionDelay: `${idx * 50}ms` }} 
+                  className="reveal border border-border rounded-3xl bg-card overflow-hidden shadow-soft hover:shadow-card transition-all duration-300"
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : idx)}
+                    className="w-full px-6 py-5 flex items-center justify-between text-left font-display font-bold text-base sm:text-lg text-foreground hover:text-primary transition-colors cursor-pointer"
+                  >
+                    <span>{faq.q}</span>
+                    <span className={`grid place-items-center h-8 w-8 rounded-full bg-secondary text-foreground transition-transform duration-300 ${isOpen ? "rotate-180 bg-primary text-primary-foreground" : ""}`}>
+                      <ChevronDown className="h-4 w-4" />
+                    </span>
+                  </button>
+                  <div 
+                    className={`transition-all duration-350 ease-in-out overflow-hidden ${
+                      isOpen ? "max-h-[300px] border-t border-border/60" : "max-h-0"
+                    }`}
+                  >
+                    <div className="px-6 py-5 text-sm sm:text-base leading-relaxed text-muted-foreground bg-secondary/20">
+                      {faq.a}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* LOCAL SEO GUIDE */}
+      <section id="seo-guide" className="py-16 bg-card border-t border-border">
+        <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center">
+          <h2 className="text-2xl sm:text-3xl font-black font-display">Delhi NCR Puppy Adoption & Breeder Guide</h2>
+          <p className="mt-3 text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto">
+            Get professional insights on buying puppies, choosing ethical breeders, and caring for your new dog in Delhi, Gurugram, and Noida.
+          </p>
+          
+          <button 
+            onClick={() => setShowGuide(!showGuide)}
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-neutral-300 bg-white hover:bg-neutral-50 px-6 py-2.5 text-xs font-bold uppercase tracking-wider text-primary shadow-soft transition-all duration-300 cursor-pointer"
+          >
+            {showGuide ? "Collapse Guide" : "Read Complete Guide"}
+            <ChevronUp className={`h-4 w-4 transition-transform duration-300 ${showGuide ? "" : "rotate-180"}`} />
+          </button>
+
+          {showGuide && (
+            <div className="mt-8 text-left bg-card border border-border rounded-3xl p-6 sm:p-10 shadow-soft animate-fade-up space-y-6 text-sm sm:text-base text-muted-foreground leading-relaxed">
+              <h3 className="font-display text-xl font-bold text-foreground">Complete Guide to Finding a Healthy Puppy for Sale in Delhi NCR</h3>
+              
+              <p>
+                Welcome to the ultimate resource for pet parents looking to <strong>buy puppies in Delhi</strong> or locate a trusted <strong>dog breeder in Delhi NCR</strong>. Finding the right companion is an exciting journey, but it requires careful research to ensure you support an <strong>ethical dog breeder Delhi</strong> rather than backyard operations. Whether you are searching for a playful <strong>Labrador puppy price Delhi</strong>, a majestic <strong>Golden Retriever price Noida</strong>, or an adorable <strong>Shih Tzu puppy price in Delhi</strong>, our mission at Pawsome Puppies is to make the process completely safe, transparent, and rewarding.
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-6 my-6 text-xs sm:text-sm">
+                <div className="bg-secondary/40 rounded-2xl p-5 border border-border">
+                  <h4 className="font-bold text-foreground mb-2">Popular Large & Guard Breeds</h4>
+                  <ul className="space-y-1.5 list-disc pl-4">
+                    <li>Find a registered <strong>German Shepherd breeder Delhi NCR</strong></li>
+                    <li>Premium <strong>Siberian Husky puppy price Delhi</strong> advice</li>
+                    <li>Rare guard dogs like <strong>Tibetan Mastiff price in Delhi</strong></li>
+                    <li>Powerful family protection dogs and active guard lines</li>
+                  </ul>
+                </div>
+                <div className="bg-secondary/40 rounded-2xl p-5 border border-border">
+                  <h4 className="font-bold text-foreground mb-2">Charming Small & Toy Breeds</h4>
+                  <ul className="space-y-1.5 list-disc pl-4">
+                    <li>Adorable, low-shedding <strong>Toy Poodle price in Delhi NCR</strong></li>
+                    <li>Hypoallergenic companions from a <strong>Maltese puppy buy Delhi</strong> service</li>
+                    <li>Tiny flat-dwellers like a <strong>Pug puppy for sale in Noida</strong></li>
+                    <li>Cheerful, playful <strong>Bichon Frise puppy Delhi NCR</strong> options</li>
+                  </ul>
+                </div>
+              </div>
+
+              <h4 className="font-display text-lg font-bold text-foreground">Why Buying Certified, Vaccinated Puppies Matters</h4>
+              <p>
+                When searching for a <strong>puppy shop in Noida</strong> or browsing the <strong>best pet shop in Delhi</strong>, health credentials should be your absolute priority. Unscrupulous sellers often advertise cheap dogs, but those pets rarely have vaccinations. Every animal from our network is a <strong>vet-checked puppy Delhi NCR</strong> pet, complete with medical logs. We offer <strong>vaccinated puppies for sale Delhi</strong>, covering critical vaccinations and deworming. If you seek show qualities, we can connect you with a <strong>KCI registered puppy Gurgaon</strong> or <strong>KCI certified puppies Delhi</strong> breeders.
+              </p>
+
+              <h4 className="font-display text-lg font-bold text-foreground">Home Delivery & Regional Coverage</h4>
+              <p>
+                Our services extend across the entire capital territory. We coordinate climate-controlled <strong>home delivery puppy Delhi NCR</strong> service, bringing your new friend safely to your door. From a <strong>pet shop in Dwarka New Delhi</strong> to a <strong>pet store in Indirapuram Ghaziabad</strong>, we cover South Delhi, West Delhi, North Delhi, Rohini, Saket, and Noida Extension. If you want a <strong>dog breeder in Gurgaon</strong>, a <strong>dog breeders in Faridabad</strong>, or a <strong>puppies for sale in Ghaziabad</strong> hub, we can provide immediate coordination.
+              </p>
+
+              <h4 className="font-display text-lg font-bold text-foreground">Adoption vs Buying in Delhi</h4>
+              <p>
+                If you are looking for <strong>puppy adoption in Delhi NCR</strong> or want to explore <strong>dog adoption Delhi</strong>, we encourage adopting shelter dogs who need a second chance. For families with specific breed needs, like hypoallergenic toy dogs or protective guard lines, we ensure you find the most healthy and humanely-bred pets. Search for <strong>puppy adoption near me Delhi</strong> or visit local shelters in Delhi NCR to find rescue dogs.
+              </p>
+
+              <div className="pt-4 border-t border-border flex flex-wrap gap-2 text-xs justify-center text-muted-foreground/80 font-mono">
+                <span>#PuppyForSaleDelhi</span> • <span>#DogBreedersGurgaon</span> • <span>#PetShopNoida</span> • <span>#KCIPuppiesDelhi</span> • <span>#ToyPoodleDelhi</span> • <span>#GoldenRetrieverDelhi</span> • <span>#ShihTzuDelhiPrice</span>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 
