@@ -346,27 +346,27 @@ function Home() {
             <p className="mt-4 text-muted-foreground">Each puppy is health-checked, vaccinated, and ready to fill your home with love.</p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-7">
             {puppies.map((p, idx) => (
-              <article key={p.id} style={{ transitionDelay: `${idx * 80}ms` }} className="reveal group rounded-3xl bg-card shadow-soft hover:shadow-card transition-all hover:-translate-y-2 hover:rotate-[-0.5deg] duration-500 overflow-hidden border border-border">
+              <article key={p.id} style={{ transitionDelay: `${idx * 80}ms` }} className="reveal group rounded-2xl sm:rounded-3xl bg-card shadow-soft hover:shadow-card transition-all hover:-translate-y-2 hover:rotate-[-0.5deg] duration-500 overflow-hidden border border-border">
                 <div className="relative aspect-square overflow-hidden">
                   <img src={p.img} alt={p.breed} loading="lazy" width={800} height={800}
                     className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700" />
                 </div>
-                <div className="p-6 flex flex-col justify-between h-[190px]">
+                <div className="p-3 sm:p-6 flex flex-col justify-between min-h-[160px] sm:min-h-[190px]">
                   <div>
-                    <h3 className="font-display text-2xl font-black text-foreground group-hover:text-primary transition-colors">{p.breed}</h3>
-                    <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{p.desc}</p>
+                    <h3 className="font-display text-base sm:text-2xl font-black text-foreground group-hover:text-primary transition-colors">{p.breed}</h3>
+                    <p className="mt-1 text-[11px] sm:text-sm leading-relaxed text-muted-foreground line-clamp-2">{p.desc}</p>
                   </div>
-                  <div className="mt-4 flex gap-3">
+                  <div className="mt-3 flex flex-col sm:flex-row gap-2">
                     <a href="tel:+916302231051"
-                      className="inline-flex items-center justify-center gap-2 flex-1 rounded-xl border border-neutral-300 bg-white text-black py-2.5 text-xs sm:text-sm font-bold shadow-sm hover:bg-neutral-50 transition-colors">
-                      <Phone className="h-4 w-4" /> Call Now
+                      className="inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl border border-neutral-200 bg-white text-black py-2 sm:py-2.5 text-[11px] sm:text-sm font-bold shadow-sm hover:bg-neutral-50 transition-colors w-full sm:flex-1">
+                      <Phone className="h-3.5 w-3.5" /> Call Now
                     </a>
                     <a href={waLink(`Hi! I'm interested in a ${p.breed} puppy.`)}
                       target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 flex-1 rounded-xl bg-[#25D366] text-white py-2.5 text-xs sm:text-sm font-bold shadow-sm hover:opacity-90 transition-opacity">
-                      <MessageCircle className="h-4 w-4 fill-white text-white" /> WhatsApp Now
+                      className="inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl bg-[#25D366] text-white py-2 sm:py-2.5 text-[11px] sm:text-sm font-bold shadow-sm hover:opacity-90 transition-opacity w-full sm:flex-1">
+                      <MessageCircle className="h-3.5 w-3.5 fill-white text-white" /> WhatsApp
                     </a>
                   </div>
                 </div>
