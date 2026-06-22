@@ -122,6 +122,13 @@ function Home() {
   const [slide, setSlide] = useState(0);
   const [navOpen, setNavOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showThankYou, setShowThankYou] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.search.includes("submitted=true")) {
+      setShowThankYou(true);
+    }
+  }, []);
 
   // Testimonials Slider State
   const [tIndex, setTIndex] = useState(0);
@@ -594,14 +601,17 @@ function Home() {
             </div>
           </div>
           <form
-            className="reveal reveal-d2"
+            className="reveal reveal-d2 rounded-3xl bg-card border border-border p-7 sm:p-9 shadow-card space-y-4"
             onSubmit={(e) => {
               e.preventDefault();
               const f = new FormData(e.currentTarget);
               const msg = `Hi! I'm ${f.get("name")} (${f.get("email")}, ${f.get("phone")}). ${f.get("message")}`;
               window.open(waLink(msg), "_blank");
+              // Update URL query parameters to trigger Google Ads conversion tracking
+              if (typeof window !== "undefined") {
+                window.location.search = "?submitted=true";
+              }
             }}
-            className="rounded-3xl bg-card border border-border p-7 sm:p-9 shadow-card space-y-4"
           >
             <h3 className="font-display text-2xl font-black">Send us a message</h3>
             <input name="name" required maxLength={100} placeholder="Your Name"
@@ -708,6 +718,32 @@ function Home() {
           </a>
         </div>
       </div>
+
+      {/* Thank You / Lead Conversion Success Modal */}
+      {showThankYou && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-300">
+          <div className="w-full max-w-md rounded-3xl bg-card border border-border p-8 text-center shadow-card animate-in zoom-in-95 duration-300">
+            <div className="mx-auto grid place-items-center h-16 w-16 rounded-full bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-soft mb-6">
+              <ShieldCheck className="h-8 w-8" />
+            </div>
+            <h3 className="font-display text-3xl font-black mb-3 text-foreground">Thank You!</h3>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              Your inquiry has been successfully sent. We have opened a WhatsApp chat to finalize your puppy request. We'll be in touch shortly!
+            </p>
+            <button
+              onClick={() => {
+                setShowThankYou(false);
+                if (typeof window !== "undefined") {
+                  window.history.replaceState(null, "", window.location.pathname);
+                }
+              }}
+              className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground px-8 py-3.5 font-semibold shadow-soft hover:shadow-card hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
