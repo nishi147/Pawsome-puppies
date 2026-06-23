@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Pawsome Puppies — Healthy Puppies for Sale in Delhi NCR" },
       { name: "description", content: "Find healthy, KCI-certified, and vaccinated puppies for sale in Delhi NCR (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad) from ethical dog breeders. Call +91 6302231051." },
-      { name: "keywords", content: "pawsome, pawsome puppies, pawsome puppies delhi, pawsome puppies gurgaon, pawsome puppies noida, pawsome pet shop, puppy for sale in Delhi NCR, buy puppies in Delhi, dog breeder Delhi NCR, puppies for sale Gurgaon, pet shop Dwarka, certified puppies Delhi, Golden Retriever price Delhi, Toy Poodle price Delhi, Shih Tzu puppy Noida, puppy adoption Delhi NCR" },
+      { name: "keywords", content: "pawsome, pawsome puppies, pawsome puppies delhi, pawsome puppies gurgaon, pawsome puppies noida, pawsome pet shop, puppy for sale in Delhi NCR, buy puppies in Delhi, dog breeder Delhi NCR, puppies for sale Gurgaon, pet shop Dwarka, certified puppies Delhi, Golden Retriever price Delhi, Toy Poodle price Delhi, Shih Tzu puppy Noida, puppies for sale Delhi NCR" },
       { name: "robots", content: "index, follow" },
       { property: "og:title", content: "Pawsome Puppies — Healthy Puppies for Sale in Delhi NCR" },
       { property: "og:description", content: "Find healthy, KCI-certified, and vaccinated puppies for sale in Delhi NCR from trusted ethical dog breeders. Doorstep delivery available. Call +91 6302231051." },

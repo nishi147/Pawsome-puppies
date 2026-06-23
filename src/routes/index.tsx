@@ -59,7 +59,7 @@ const slides = [
   { 
     img: hero1, 
     title: "Find Your Perfect Furry Friend", 
-    sub: "Adopt healthy, vaccinated, and certified puppies from India's most trusted ethical breeders. We bring veterinary-certified joy directly to your doorstep with 100% health guarantees and lifetime support." 
+    sub: "Buy healthy, vaccinated, and certified puppies from India's most trusted ethical breeders. We bring veterinary-certified joy directly to your doorstep with 100% health guarantees and lifetime support." 
   },
   { 
     img: hero2, 
@@ -107,12 +107,12 @@ const features = [
 ];
 
 const testimonials = [
-  { name: "Aarav Sharma", role: "Milo's Owner", text: "Adopting Milo was the best decision! He's brought so much laughter and playfulness into our house. The process was super smooth.", img: tImage1, breed: "Golden Retriever" },
+  { name: "Aarav Sharma", role: "Milo's Owner", text: "Bringing Milo home was the best decision! He's brought so much laughter and playfulness into our house. The process was super smooth.", img: tImage1, breed: "Golden Retriever" },
   { name: "Priyanka Patel", role: "Bella's Family", text: "Pawsome Puppies is fantastic. Bella came home vet-checked, fully vaccinated, and socialized. Thank you so much!", img: tImage2, breed: "Labrador" },
   { name: "Rohan Mehta", role: "Oliver's Mom", text: "Our little Frenchie, Oliver, is the star of the neighborhood. Extremely healthy and well-behaved. Highly recommended!", img: tImage3, breed: "French Bulldog" },
-  { name: "Ananya Iyer", role: "Teddy's Dad", text: "The team was supportive throughout the transition. Teddy is our dream puppy. The post-adoption advice was invaluable.", img: tImage4, breed: "Poodle" },
+  { name: "Ananya Iyer", role: "Teddy's Dad", text: "The team was supportive throughout the transition. Teddy is our dream puppy. The post-purchase advice was invaluable.", img: tImage4, breed: "Poodle" },
   { name: "Arjun Verma", role: "Daisy's Parent", text: "We are in love with Daisy. She's incredibly smart, active, and loves kids. A perfect addition to our family!", img: tImage5, breed: "Beagle" },
-  { name: "Neha Gupta", role: "Rocky's Companion", text: "So grateful to Pawsome Puppies. Rocky is our protector and best friend. Excellent support even after adoption!", img: tImage6, breed: "German Shepherd" },
+  { name: "Neha Gupta", role: "Rocky's Companion", text: "So grateful to Pawsome Puppies. Rocky is our protector and best friend. Excellent support even after bringing him home!", img: tImage6, breed: "German Shepherd" },
   { name: "Vikram Singh", role: "Lily's Owner", text: "Unbelievably happy with the entire process. Lily is active, affectionate, and so healthy. She is a bundle of joy.", img: tImage7, breed: "Shih Tzu" },
   { name: "Kavita Rao", role: "Coco's Dad", text: "Coco has been with us for a month and is doing wonderful. Vet confirmed he's in perfect shape. Thanks Pawsome Puppies!", img: tImage8, breed: "Pug" },
   { name: "Aditya Joshi", role: "Leo's Mom", text: "A five-star experience! From consultation to delivery, everything was handled professionally. Leo is a pure joy.", img: tImage9, breed: "Cocker Spaniel" },
@@ -241,7 +241,7 @@ const faqs = [
   },
   {
     q: "Are the puppies vaccinated and vet-checked?",
-    a: "Absolutely. Every puppy is vet-checked by certified veterinarians from day one. They are dewormed on schedule and receive age-appropriate vaccinations. We hand over a complete medical health chart, vaccination record, and a written health guarantee at the time of adoption."
+    a: "Absolutely. Every puppy is vet-checked by certified veterinarians from day one. They are dewormed on schedule and receive age-appropriate vaccinations. We hand over a complete medical health chart, vaccination record, and a written health guarantee upon purchase."
   },
   {
     q: "Do you offer pet shop services or a physical dog shop in Dwarka or South Delhi?",
@@ -621,7 +621,7 @@ function Home() {
               <Heart className="h-6 w-6 text-[color:var(--blush)] fill-[color:var(--blush)]" />
               <div>
                 <p className="text-2xl font-black">5+ Years</p>
-                <p className="text-xs text-muted-foreground">of joyful adoptions</p>
+                <p className="text-xs text-muted-foreground">of placing happy puppies</p>
               </div>
             </div>
           </div>
@@ -630,13 +630,13 @@ function Home() {
             <h2 className="mt-3 text-4xl sm:text-5xl font-black">Where Puppies Meet Forever Homes</h2>
             <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
               We are passionate about connecting loving families with healthy, happy, and well-cared-for puppies.
-              Our mission is to provide trusted, ethical, and transparent puppy adoption services while ensuring
+              Our mission is to provide trusted, ethical, and transparent puppy services while ensuring
               every puppy finds a loving forever home.
             </p>
             <div className="mt-8 grid grid-cols-3 gap-4">
               {[
                 ["500+", "Happy Families"],
-                ["1000+", "Puppies Adopted"],
+                ["1000+", "Puppies Placed"],
                 ["5+", "Years Experience"],
               ].map(([n, l]) => (
                 <div key={l} className="rounded-2xl bg-card border border-border p-4 text-center shadow-soft">
@@ -789,7 +789,7 @@ function Home() {
           <div className="text-center max-w-2xl mx-auto mb-14 reveal">
             <span className="text-xs font-bold uppercase tracking-widest text-primary">Got Questions?</span>
             <h2 className="mt-3 text-4xl sm:text-5xl font-black font-display text-foreground">Frequently Asked Questions</h2>
-            <p className="mt-4 text-muted-foreground text-sm">Everything you need to know about buying or adopting a puppy in Delhi NCR.</p>
+            <p className="mt-4 text-muted-foreground text-sm">Everything you need to know about buying a puppy in Delhi NCR.</p>
           </div>
           <div className="space-y-4">
             {faqs.map((faq, idx) => {
@@ -828,7 +828,7 @@ function Home() {
       {/* LOCAL SEO GUIDE */}
       <section id="seo-guide" className="py-16 bg-card border-t border-border">
         <div className="mx-auto max-w-4xl px-5 sm:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-black font-display">Delhi NCR Puppy Adoption & Breeder Guide</h2>
+          <h2 className="text-2xl sm:text-3xl font-black font-display">Delhi NCR Puppy Buying & Breeder Guide</h2>
           <p className="mt-3 text-xs sm:text-sm text-muted-foreground max-w-xl mx-auto">
             Get professional insights on buying puppies, choosing ethical breeders, and caring for your new dog in Delhi, Gurugram, and Noida.
           </p>
@@ -880,9 +880,9 @@ function Home() {
                 Our services extend across the entire capital territory. We coordinate climate-controlled <strong>home delivery puppy Delhi NCR</strong> service, bringing your new friend safely to your door. From a <strong>pet shop in Dwarka New Delhi</strong> to a <strong>pet store in Indirapuram Ghaziabad</strong>, we cover South Delhi, West Delhi, North Delhi, Rohini, Saket, and Noida Extension. If you want a <strong>dog breeder in Gurgaon</strong>, a <strong>dog breeders in Faridabad</strong>, or a <strong>puppies for sale in Ghaziabad</strong> hub, we can provide immediate coordination.
               </p>
 
-              <h4 className="font-display text-lg font-bold text-foreground">Adoption vs Buying in Delhi</h4>
+              <h4 className="font-display text-lg font-bold text-foreground">Choosing the Right Breeder in Delhi</h4>
               <p>
-                If you are looking for <strong>puppy adoption in Delhi NCR</strong> or want to explore <strong>dog adoption Delhi</strong>, we encourage adopting shelter dogs who need a second chance. For families with specific breed needs, like hypoallergenic toy dogs or protective guard lines, we ensure you find the most healthy and humanely-bred pets. Search for <strong>puppy adoption near me Delhi</strong> or visit local shelters in Delhi NCR to find rescue dogs.
+                For families with specific breed needs, like hypoallergenic toy dogs or protective guard lines, we ensure you find the most healthy and humanely-bred pets. We work with top certified dog breeders in Delhi NCR to guarantee that you bring home a healthy, happy companion that fits your family's lifestyle.
               </p>
 
               <div className="pt-4 border-t border-border flex flex-wrap gap-2 text-xs justify-center text-muted-foreground/80 font-mono">
