@@ -267,7 +267,7 @@ function Home() {
       // Trigger Google Ads conversion event on successful redirect
       if (typeof (window as any).gtag === "function") {
         (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-18264805339/0H0-ciJ0h8QcENufq4vz',
+          'send_to': 'AW-18264805339/0B0-CIj0h8QcENufq4VE',
           'value': 1.0,
           'currency': 'INR'
         });
