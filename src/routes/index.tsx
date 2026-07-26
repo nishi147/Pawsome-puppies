@@ -45,7 +45,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Pawsome Puppies — Healthy Puppies for Sale in Delhi NCR" },
-      { name: "description", content: "Looking for puppies for sale in Delhi NCR? Buy healthy, vaccinated, KCI-certified puppies in Delhi, Gurgaon, Noida, Ghaziabad & Faridabad. Connect with ethical dog breeders. Call +91 6302231051." },
+      { name: "description", content: "Looking for puppies for sale in Delhi NCR? Buy healthy, vaccinated, KCI-certified puppies in Delhi, Gurgaon, Noida, Ghaziabad & Faridabad. Connect with ethical dog breeders. Call +91 7678494050." },
       { name: "keywords", content: "pawsome, pawsome puppies, pawsome puppies delhi, pawsome puppies gurgaon, pawsome puppies noida, pawsome pet shop, puppy for sale in Delhi NCR, puppies for sale in Delhi NCR, buy puppies in Delhi, buy puppy in Delhi, dog breeder in Delhi NCR, dog breeders in Gurgaon, puppies for sale in Gurgaon, puppy shop in Noida, dog shop in Delhi, pet shop in Dwarka New Delhi, ethical dog breeders Delhi, certified puppies in Delhi, buy Labrador in Delhi, buy Golden Retriever in Delhi NCR, Shih Tzu puppy price in Delhi, Toy Poodle price in Delhi NCR" },
       { name: "robots", content: "index, follow" }
     ],
@@ -53,7 +53,7 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const WHATSAPP = "916302231051";
+const WHATSAPP = "917678494050";
 
 const slides = [
   { 
@@ -129,7 +129,7 @@ const SEO_SCHEMAS = {
       "name": "Pawsome Puppies Delhi NCR",
       "image": "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/92e47f73-5e0a-46cd-9d36-5ef1c29309d3/id-preview-4c2e6649--36188f29-26f1-43f2-b2f5-0ad148d6bd21.lovable.app-1782141240154.png",
       "url": "https://pawsome-puppies.vercel.app/",
-      "telephone": "+916302231051",
+      "telephone": "+917678494050",
       "priceRange": "$$",
       "address": {
         "@type": "PostalAddress",
@@ -229,7 +229,7 @@ const SEO_SCHEMAS = {
 const faqs = [
   {
     q: "How can I buy a puppy in Delhi NCR from Pawsome Puppies?",
-    a: "Buying a puppy with us is simple: browse our available puppies online, contact us via Call (+91 6302231051) or WhatsApp, choose your breed (like Golden Retriever, Labrador, Toy Poodle, etc.), inspect veterinary certificates, and arrange safe, climate-controlled home delivery directly to your doorstep in Delhi, Gurgaon, Noida, Ghaziabad, or Faridabad."
+    a: "Buying a puppy with us is simple: browse our available puppies online, contact us via Call (+91 7678494050) or WhatsApp, choose your breed (like Golden Retriever, Labrador, Toy Poodle, etc.), inspect veterinary certificates, and arrange safe, climate-controlled home delivery directly to your doorstep in Delhi, Gurgaon, Noida, Ghaziabad, or Faridabad."
   },
   {
     q: "Where do you source your puppies? Are they from ethical dog breeders?",
@@ -523,7 +523,7 @@ function Home() {
                     <p className="mt-1 text-[11px] sm:text-sm leading-relaxed text-muted-foreground line-clamp-2">{p.desc}</p>
                   </div>
                   <div className="mt-3 flex flex-col sm:flex-row gap-2">
-                    <a href="tel:+916302231051"
+                    <a href="tel:+917678494050"
                       className="inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl border border-neutral-200 bg-white text-black py-2 sm:py-2.5 text-[11px] sm:text-sm font-bold shadow-sm hover:bg-neutral-50 transition-colors w-full sm:flex-1">
                       <Phone className="h-3.5 w-3.5" /> Call Now
                     </a>
@@ -902,7 +902,7 @@ function Home() {
             <p className="mt-4 text-muted-foreground">Reach out — we'd love to help you find your perfect pup.</p>
             <div className="mt-8 space-y-4">
               {[
-                { Icon: Phone, t: "+91 6302231051" },
+                { Icon: Phone, t: "+91 7678494050" },
                 { Icon: Mail, t: "puppiespawsome6@gmail.com" },
                 { Icon: MapPin, t: "Dwarka, sec 10, New Delhi" },
                 { Icon: Clock, t: "Mon–Sun · 9am – 7pm" },
@@ -984,7 +984,7 @@ function Home() {
           <div>
             <h4 className="font-bold mb-4">Contact</h4>
             <ul className="space-y-2 text-sm text-background/70">
-              <li>+91 6302231051</li>
+              <li>+91 7678494050</li>
               <li>puppiespawsome6@gmail.com</li>
               <li>Dwarka, sec 10, New Delhi</li>
             </ul>
@@ -1009,7 +1009,7 @@ function Home() {
       <div className="fixed bottom-0 inset-x-0 z-50 md:hidden px-4 pb-4 pt-2 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none">
         <div className="mx-auto max-w-md w-full bg-white text-black rounded-full shadow-[0_-8px_30px_rgb(0,0,0,0.12)] border border-neutral-100 flex items-center justify-between px-8 py-2.5 pointer-events-auto">
           {/* Call Us */}
-          <a href="tel:+916302231051" className="flex flex-col items-center gap-1 group">
+          <a href="tel:+917678494050" className="flex flex-col items-center gap-1 group">
             <span className="grid place-items-center h-10 w-10 rounded-full bg-[#00c853] text-white shadow-sm group-hover:scale-105 transition-transform">
               <Phone className="h-5 w-5 fill-white text-white" />
             </span>
