@@ -120,6 +120,25 @@ function RootShell({ children }: { children: ReactNode }) {
             `,
           }}
         />
+        {/* Google Ads Click Conversion Helper */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              function gtag_report_conversion(url) {
+                var callback = function () {
+                  if (typeof(url) != 'undefined') {
+                    window.location = url;
+                  }
+                };
+                gtag('event', 'conversion', {
+                  'send_to': 'AW-18348892652/RdNPCOKJ4tYcEOzDt61E',
+                  'event_callback': callback
+                });
+                return false;
+              }
+            `,
+          }}
+        />
       </head>
       <body>
         {children}

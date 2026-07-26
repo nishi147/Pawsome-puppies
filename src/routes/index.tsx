@@ -265,12 +265,8 @@ function Home() {
     if (typeof window !== "undefined" && window.location.search.includes("submitted=true")) {
       setShowThankYou(true);
       // Trigger Google Ads conversion event on successful redirect
-      if (typeof (window as any).gtag === "function") {
-        (window as any).gtag('event', 'conversion', {
-          'send_to': 'AW-18264805339/0B0-CIj0h8QcENufq4VE',
-          'value': 1.0,
-          'currency': 'INR'
-        });
+      if (typeof (window as any).gtag_report_conversion === "function") {
+        (window as any).gtag_report_conversion();
       }
     }
   }, []);
@@ -943,6 +939,11 @@ function Home() {
             <textarea name="message" required maxLength={1000} rows={4} placeholder="Tell us which puppy you love..."
               className="w-full rounded-xl bg-background border border-border px-4 py-3 focus:outline-none focus:border-primary resize-none" />
             <button type="submit"
+              onClick={() => {
+                if (typeof (window as any).gtag_report_conversion === "function") {
+                  (window as any).gtag_report_conversion();
+                }
+              }}
               className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground py-3.5 font-semibold shadow-soft hover:shadow-card hover:-translate-y-0.5 transition-all">
               Send Message <ArrowRight className="h-4 w-4" />
             </button>
