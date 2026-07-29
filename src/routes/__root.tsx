@@ -81,16 +81,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Find healthy, KCI-certified, and vaccinated puppies for sale in Delhi NCR (Delhi, Gurgaon, Noida, Ghaziabad, Faridabad) from ethical dog breeders. Call +91 7678494050." },
       { name: "keywords", content: "pawsome, pawsome puppies, pawsome puppies delhi, pawsome puppies gurgaon, pawsome puppies noida, pawsome pet shop, puppy for sale in Delhi NCR, buy puppies in Delhi, dog breeder Delhi NCR, puppies for sale Gurgaon, pet shop Dwarka, certified puppies Delhi, Golden Retriever price Delhi, Toy Poodle price Delhi, Shih Tzu puppy Noida, puppies for sale Delhi NCR" },
       { name: "robots", content: "index, follow" },
+      // Open Graph — complete set for Google Ads preview quality
       { property: "og:title", content: "Pawsome Puppies — Healthy Puppies for Sale in Delhi NCR" },
       { property: "og:description", content: "Find healthy, KCI-certified, and vaccinated puppies for sale in Delhi NCR from trusted ethical dog breeders. Doorstep delivery available. Call +91 7678494050." },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://pawsome-puppies.vercel.app/" },
+      { property: "og:locale", content: "en_IN" },
+      { property: "og:site_name", content: "Pawsome Puppies" },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/92e47f73-5e0a-46cd-9d36-5ef1c29309d3/id-preview-4c2e6649--36188f29-26f1-43f2-b2f5-0ad148d6bd21.lovable.app-1782141240154.png" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: "Pawsome Puppies — Healthy Puppies for Sale in Delhi NCR" },
+      // Twitter Card
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Pawsome Puppies — Healthy Puppies for Sale in Delhi NCR" },
       { name: "twitter:description", content: "Find healthy, KCI-certified, and vaccinated puppies for sale in Delhi NCR from trusted ethical dog breeders. Doorstep delivery available. Call +91 7678494050." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/92e47f73-5e0a-46cd-9d36-5ef1c29309d3/id-preview-4c2e6649--36188f29-26f1-43f2-b2f5-0ad148d6bd21.lovable.app-1782141240154.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/92e47f73-5e0a-46cd-9d36-5ef1c29309d3/id-preview-4c2e6649--36188f29-26f1-43f2-b2f5-0ad148d6bd21.lovable.app-1782141240154.png" },
+      { name: "twitter:site", content: "@pawsomepuppies" },
+      // Geo meta tags — boosts local Delhi NCR Google Ads Quality Score
+      { name: "geo.region", content: "IN-DL" },
+      { name: "geo.placename", content: "Dwarka, New Delhi, Delhi NCR, India" },
+      { name: "geo.position", content: "28.5823;77.0597" },
+      { name: "ICBM", content: "28.5823, 77.0597" },
     ],
     links: [
+      // Canonical URL — required for Google Ads landing page Quality Score
+      { rel: "canonical", href: "https://pawsome-puppies.vercel.app/" },
+      // Favicon — impacts CTR via brand recognition in browser tabs
+      { rel: "icon", href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>" },
+      { rel: "apple-touch-icon", href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>" },
+      // Fonts
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" },

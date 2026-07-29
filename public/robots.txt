@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /*?submitted=true
+
+# Googlebot-specific tuning
+User-agent: Googlebot
+Allow: /
+Disallow: /*?submitted=true
 
 Sitemap: https://pawsome-puppies.vercel.app/sitemap.xml

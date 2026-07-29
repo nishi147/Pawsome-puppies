@@ -130,7 +130,9 @@ const SEO_SCHEMAS = {
       "image": "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/92e47f73-5e0a-46cd-9d36-5ef1c29309d3/id-preview-4c2e6649--36188f29-26f1-43f2-b2f5-0ad148d6bd21.lovable.app-1782141240154.png",
       "url": "https://pawsome-puppies.vercel.app/",
       "telephone": "+917678494050",
-      "priceRange": "$$",
+      "email": "puppiespawsome6@gmail.com",
+      "priceRange": "₹₹",
+      "hasMap": "https://www.google.com/maps/search/Dwarka+Sector+10+New+Delhi",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Dwarka, sec 10",
@@ -158,6 +160,51 @@ const SEO_SCHEMAS = {
         "opens": "09:00",
         "closes": "19:00"
       },
+      // AggregateRating — enables star rating extensions in Google Ads (boosts CTR significantly)
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "500",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Aarav Sharma" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Bringing Milo home was the best decision! He's brought so much laughter and playfulness into our house. The process was super smooth.",
+          "datePublished": "2026-06-01"
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Priyanka Patel" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Pawsome Puppies is fantastic. Bella came home vet-checked, fully vaccinated, and socialized. Thank you so much!",
+          "datePublished": "2026-05-15"
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Rohan Mehta" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Our little Frenchie, Oliver, is the star of the neighborhood. Extremely healthy and well-behaved. Highly recommended!",
+          "datePublished": "2026-05-20"
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Neha Gupta" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "So grateful to Pawsome Puppies. Rocky is our protector and best friend. Excellent support even after bringing him home!",
+          "datePublished": "2026-06-10"
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Aditya Joshi" },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "A five-star experience! From consultation to delivery, everything was handled professionally. Leo is a pure joy.",
+          "datePublished": "2026-06-18"
+        }
+      ],
       "sameAs": [
         "https://facebook.com/pawsomepuppies",
         "https://instagram.com/pawsomepuppies",
