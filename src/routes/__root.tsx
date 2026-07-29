@@ -85,7 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Pawsome Puppies — Healthy Puppies for Sale in Delhi NCR" },
       { property: "og:description", content: "Find healthy, KCI-certified, and vaccinated puppies for sale in Delhi NCR from trusted ethical dog breeders. Doorstep delivery available. Call +91 7678494050." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://pawsome-puppies.vercel.app/" },
+      { property: "og:url", content: "https://www.pawsomepuppies.info/" },
       { property: "og:locale", content: "en_IN" },
       { property: "og:site_name", content: "Pawsome Puppies" },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/92e47f73-5e0a-46cd-9d36-5ef1c29309d3/id-preview-4c2e6649--36188f29-26f1-43f2-b2f5-0ad148d6bd21.lovable.app-1782141240154.png" },
@@ -106,7 +106,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       // Canonical URL — required for Google Ads landing page Quality Score
-      { rel: "canonical", href: "https://pawsome-puppies.vercel.app/" },
+      { rel: "canonical", href: "https://www.pawsomepuppies.info/" },
       // Favicon — impacts CTR via brand recognition in browser tabs
       { rel: "icon", href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>" },
       { rel: "apple-touch-icon", href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐾</text></svg>" },

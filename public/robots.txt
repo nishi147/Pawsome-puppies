@@ -7,4 +7,4 @@ User-agent: Googlebot
 Allow: /
 Disallow: /*?submitted=true
 
-Sitemap: https://pawsome-puppies.vercel.app/sitemap.xml
+Sitemap: https://www.pawsomepuppies.info/sitemap.xml

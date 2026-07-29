@@ -47,7 +47,8 @@ export const Route = createFileRoute("/")({
       { title: "Pawsome Puppies — Healthy Puppies for Sale in Delhi NCR" },
       { name: "description", content: "Looking for puppies for sale in Delhi NCR? Buy healthy, vaccinated, KCI-certified puppies in Delhi, Gurgaon, Noida, Ghaziabad & Faridabad. Connect with ethical dog breeders. Call +91 7678494050." },
       { name: "keywords", content: "pawsome, pawsome puppies, pawsome puppies delhi, pawsome puppies gurgaon, pawsome puppies noida, pawsome pet shop, puppy for sale in Delhi NCR, puppies for sale in Delhi NCR, buy puppies in Delhi, buy puppy in Delhi, dog breeder in Delhi NCR, dog breeders in Gurgaon, puppies for sale in Gurgaon, puppy shop in Noida, dog shop in Delhi, pet shop in Dwarka New Delhi, ethical dog breeders Delhi, certified puppies in Delhi, buy Labrador in Delhi, buy Golden Retriever in Delhi NCR, Shih Tzu puppy price in Delhi, Toy Poodle price in Delhi NCR" },
-      { name: "robots", content: "index, follow" }
+      { name: "robots", content: "index, follow" },
+      { rel: "canonical", href: "https://www.pawsomepuppies.info/" },
     ],
   }),
   component: Home,
@@ -125,10 +126,10 @@ const SEO_SCHEMAS = {
   "@graph": [
     {
       "@type": "PetStore",
-      "@id": "https://pawsome-puppies.vercel.app/#petstore",
+      "@id": "https://www.pawsomepuppies.info/#petstore",
       "name": "Pawsome Puppies Delhi NCR",
       "image": "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/92e47f73-5e0a-46cd-9d36-5ef1c29309d3/id-preview-4c2e6649--36188f29-26f1-43f2-b2f5-0ad148d6bd21.lovable.app-1782141240154.png",
-      "url": "https://pawsome-puppies.vercel.app/",
+      "url": "https://www.pawsomepuppies.info/",
       "telephone": "+917678494050",
       "email": "puppiespawsome6@gmail.com",
       "priceRange": "₹₹",
@@ -226,7 +227,7 @@ const SEO_SCHEMAS = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://pawsome-puppies.vercel.app/#faq",
+      "@id": "https://www.pawsomepuppies.info/#faq",
       "mainEntity": [
         {
           "@type": "Question",
