@@ -179,3 +179,44 @@
 .reveal-d5 { transition-delay: 0.40s; }
 
 .progress-bar { animation: progress 5.5s linear forwards; }
+
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.animate-pulse-badge { animation: pulse-badge 3s ease-in-out infinite; }
+
+.glass-trust-card {
+  background: color-mix(in oklab, var(--card) 85%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid color-mix(in oklab, var(--border) 70%, transparent);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.4) inset;
+}
+
+.cta-shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+.cta-shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  animation: shimmer 4s infinite;
+}
+

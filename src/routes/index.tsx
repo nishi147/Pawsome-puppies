@@ -5,6 +5,7 @@ import {
   ShieldCheck, Stethoscope, Award, Truck, Headphones, Tag,
   Star, ArrowRight, MessageCircle, Facebook, Instagram, Twitter,
   ChevronLeft, ChevronRight, Quote, ChevronUp, ChevronDown, Plus, Minus,
+  CheckCircle2, Sparkles, BadgeCheck, Users, FileText, Video, Camera
 } from "lucide-react";
 
 import hero1 from "@/assets/hero-1.jpg";
@@ -75,27 +76,27 @@ const slides = [
 ];
 
 type Puppy = {
-  id: number; breed: string; gender: "Male" | "Female";
+  id: number; breed: string;
   price: number; img: string; desc: string;
 };
 
 const puppies: Puppy[] = [
-  { id: 1, breed: "Labrador", gender: "Male", price: 850, img: puppy1, desc: "Playful, friendly, and intelligent family companion." },
-  { id: 2, breed: "Husky", gender: "Female", price: 1200, img: puppy2, desc: "Striking blue eyes and a loyal, high-energy companion." },
-  { id: 3, breed: "French Bulldog", gender: "Male", price: 1500, img: puppy3, desc: "Charming, adaptable, calm, and absolutely adorable." },
-  { id: 4, breed: "Shih Tzu", gender: "Female", price: 950, img: puppy4, desc: "Tiny, affectionate, fluffy, and great for apartments." },
-  { id: 5, breed: "German Shepherd", gender: "Male", price: 1100, img: puppy5, desc: "Smart, alert, courageous, and highly protective guardian." },
-  { id: 6, breed: "Pug", gender: "Male", price: 800, img: puppy6, desc: "Wrinkly bundle of joy, loving, and extremely playful." },
-  { id: 7, breed: "Golden Retriever", gender: "Male", price: 1300, img: goldenRetriever, desc: "Gentle, eager-to-please, smart, and perfect for families." },
-  { id: 8, breed: "Beagle", gender: "Female", price: 900, img: beagle, desc: "Curious, merry, loving, and excellent track companion." },
-  { id: 9, breed: "Tibetan Mastiff", gender: "Male", price: 2500, img: tibetanMastiff, desc: "Noble, independent, extremely protective, and large-sized." },
-  { id: 10, breed: "Bichon Frisé", gender: "Female", price: 1150, img: bichonFrise, desc: "Hypoallergenic coat, cheerful, outgoing, and loves attention." },
-  { id: 11, breed: "Toy Poodle", gender: "Female", price: 1400, img: toyPoodle, desc: "Exceptionally smart, highly active, proud, and easy to train." },
-  { id: 12, breed: "Maltese", gender: "Female", price: 1050, img: maltese, desc: "Gentle, playful, affectionate, with a beautiful white coat." },
-  { id: 13, breed: "Maltipoo", gender: "Male", price: 1250, img: maltipoo, desc: "Affectionate designer breed, friendly, and very adaptive." },
-  { id: 14, breed: "Dachshund", gender: "Male", price: 950, img: dachshund, desc: "Lively, clever, courageous, and famously shape-distinctive." },
-  { id: 15, breed: "Akita", gender: "Female", price: 1800, img: akita, desc: "Dignified, courageous, quiet, and deeply loyal to families." },
-  { id: 16, breed: "Chow Chow", gender: "Male", price: 1600, img: chowChow, desc: "Dignified, bear-like appearance, independent, and quiet." },
+  { id: 1, breed: "Labrador", price: 850, img: puppy1, desc: "Playful, friendly, and intelligent family companion." },
+  { id: 2, breed: "Husky", price: 1200, img: puppy2, desc: "Striking blue eyes and a loyal, high-energy companion." },
+  { id: 3, breed: "French Bulldog", price: 1500, img: puppy3, desc: "Charming, adaptable, calm, and absolutely adorable." },
+  { id: 4, breed: "Shih Tzu", price: 950, img: puppy4, desc: "Tiny, affectionate, fluffy, and great for apartments." },
+  { id: 5, breed: "German Shepherd", price: 1100, img: puppy5, desc: "Smart, alert, courageous, and highly protective guardian." },
+  { id: 6, breed: "Pug", price: 800, img: puppy6, desc: "Wrinkly bundle of joy, loving, and extremely playful." },
+  { id: 7, breed: "Golden Retriever", price: 1300, img: goldenRetriever, desc: "Gentle, eager-to-please, smart, and perfect for families." },
+  { id: 8, breed: "Beagle", price: 900, img: beagle, desc: "Curious, merry, loving, and excellent track companion." },
+  { id: 9, breed: "Tibetan Mastiff", price: 2500, img: tibetanMastiff, desc: "Noble, independent, extremely protective, and large-sized." },
+  { id: 10, breed: "Bichon Frisé", price: 1150, img: bichonFrise, desc: "Hypoallergenic coat, cheerful, outgoing, and loves attention." },
+  { id: 11, breed: "Toy Poodle", price: 1400, img: toyPoodle, desc: "Exceptionally smart, highly active, proud, and easy to train." },
+  { id: 12, breed: "Maltese", price: 1050, img: maltese, desc: "Gentle, playful, affectionate, with a beautiful white coat." },
+  { id: 13, breed: "Maltipoo", price: 1250, img: maltipoo, desc: "Affectionate designer breed, friendly, and very adaptive." },
+  { id: 14, breed: "Dachshund", price: 950, img: dachshund, desc: "Lively, clever, courageous, and famously shape-distinctive." },
+  { id: 15, breed: "Akita", price: 1800, img: akita, desc: "Dignified, courageous, quiet, and deeply loyal to families." },
+  { id: 16, breed: "Chow Chow", price: 1600, img: chowChow, desc: "Dignified, bear-like appearance, independent, and quiet." },
 ];
 
 const features = [
@@ -308,6 +309,18 @@ function Home() {
   const [showThankYou, setShowThankYou] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showGuide, setShowGuide] = useState(false);
+  const [selectedPuppy, setSelectedPuppy] = useState<Puppy | null>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const breedParam = params.get("breed");
+      if (breedParam) {
+        const match = puppies.find(p => p.breed.toLowerCase() === breedParam.toLowerCase());
+        if (match) setSelectedPuppy(match);
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined" && window.location.search.includes("submitted=true")) {
@@ -413,20 +426,51 @@ function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SEO_SCHEMAS) }}
       />
+      {/* TOP TRUST BANNER */}
+      <div className="bg-slate-950 text-slate-100 border-b border-slate-800 text-xs py-2 px-4 relative z-50">
+        <div className="mx-auto max-w-7xl flex flex-wrap items-center justify-between gap-2">
+          <div className="flex items-center gap-3 flex-wrap">
+            <span className="inline-flex items-center gap-1.5 font-bold text-amber-400">
+              <Star className="h-3.5 w-3.5 fill-amber-400" /> 4.9/5 Rating
+            </span>
+            <span className="hidden sm:inline text-slate-700">•</span>
+            <span className="inline-flex items-center gap-1 text-emerald-400 font-semibold">
+              <BadgeCheck className="h-3.5 w-3.5 text-emerald-400" /> 500+ Verified Families in Delhi NCR
+            </span>
+            <span className="hidden md:inline text-slate-700">•</span>
+            <span className="hidden md:inline-flex items-center gap-1 text-sky-300 font-medium">
+              <ShieldCheck className="h-3.5 w-3.5 text-sky-400" /> KCI Certified & Vet Checked
+            </span>
+          </div>
+          <div className="flex items-center gap-3 text-[11px] font-medium">
+            <span className="hidden lg:inline text-slate-400">📍 Dwarka Hub • Delhi NCR Doorstep Delivery</span>
+            <a
+              href="tel:+917678494050"
+              className="inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 font-bold transition-colors"
+            >
+              <Phone className="h-3 w-3" /> +91 7678494050
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* NAV */}
       <header
-        className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
-          scrolled ? "glass-card shadow-soft" : "bg-transparent"
+        className={`sticky top-0 inset-x-0 z-50 transition-all duration-300 ${
+          scrolled ? "glass-card shadow-soft" : "bg-card/70 backdrop-blur-md border-b border-border/50"
         }`}
       >
-        <div className="mx-auto max-w-7xl px-5 sm:px-8 py-4 flex items-center justify-between">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 py-3.5 flex items-center justify-between">
           <a href="#home" className="flex items-center gap-2 group">
             <span className="grid place-items-center h-10 w-10 rounded-2xl bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-soft group-hover:scale-110 transition-transform">
               <PawPrint className="h-5 w-5" />
             </span>
-            <span className="font-display text-xl font-black tracking-tight">Pawsome Puppies</span>
+            <div className="flex flex-col">
+              <span className="font-display text-xl font-black tracking-tight leading-none">Pawsome Puppies</span>
+              <span className="text-[10px] font-bold tracking-widest uppercase text-muted-foreground mt-0.5">Delhi NCR Breeder</span>
+            </div>
           </a>
-          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold">
+          <nav className="hidden md:flex items-center gap-6 text-sm font-semibold">
             {[
               ["Home", "#home"], ["Puppies", "#puppies"],
               ["About Us", "#about"], ["Contact Us", "#contact"],
@@ -435,10 +479,16 @@ function Home() {
                 {l}
               </a>
             ))}
-            <a href={waLink("Hi! I'm interested in your puppies.")}
-              className="inline-flex items-center gap-2 rounded-full bg-foreground text-background px-5 py-2.5 hover:bg-primary transition-colors">
-              <MessageCircle className="h-4 w-4" /> Chat
-            </a>
+            <div className="flex items-center gap-2.5 ml-2">
+              <a href="tel:+917678494050"
+                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-xs font-bold text-foreground hover:border-primary hover:text-primary transition-colors shadow-xs">
+                <Phone className="h-3.5 w-3.5 text-primary" /> Call
+              </a>
+              <a href={waLink("Hi! I'm interested in your puppies.")}
+                className="inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-4.5 py-2 text-xs font-bold shadow-soft hover:opacity-90 hover:scale-105 transition-all">
+                <MessageCircle className="h-3.5 w-3.5 fill-white" /> WhatsApp
+              </a>
+            </div>
           </nav>
           <button onClick={() => setNavOpen((o) => !o)} className="md:hidden grid place-items-center h-10 w-10 rounded-xl bg-card shadow-soft">
             {navOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -449,12 +499,20 @@ function Home() {
             {[["Home", "#home"], ["Puppies", "#puppies"], ["About Us", "#about"], ["Contact Us", "#contact"]].map(([l, h]) => (
               <a key={h} href={h} onClick={() => setNavOpen(false)} className="block py-2 font-semibold">{l}</a>
             ))}
+            <div className="pt-2 flex flex-col gap-2">
+              <a href="tel:+917678494050" className="flex items-center justify-center gap-2 rounded-xl bg-primary text-primary-foreground py-2.5 font-bold text-sm">
+                <Phone className="h-4 w-4" /> Call Breeder: +91 7678494050
+              </a>
+              <a href={waLink("Hi! I'm interested in your puppies.")} className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] text-white py-2.5 font-bold text-sm">
+                <MessageCircle className="h-4 w-4 fill-white" /> WhatsApp Us Instant
+              </a>
+            </div>
           </div>
         )}
       </header>
 
       {/* HERO */}
-      <section id="home" className="relative h-screen min-h-[640px] w-full overflow-hidden">
+      <section id="home" className="relative min-h-[90vh] lg:min-h-[820px] w-full overflow-hidden flex flex-col justify-between pt-8 pb-12">
         {slides.map((s, i) => (
           <div
             key={i}
@@ -469,84 +527,241 @@ function Home() {
               width={1536}
               height={1024}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/50 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/30 lg:to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
           </div>
         ))}
 
-        {/* Decorative parallax blobs */}
+        {/* Decorative Parallax Blobs */}
         <div
-          className="pointer-events-none absolute -top-20 -right-20 h-80 w-80 bg-gradient-to-br from-primary/40 to-accent/40 animate-blob blur-2xl opacity-60"
+          className="pointer-events-none absolute -top-20 -right-20 h-96 w-96 bg-gradient-to-br from-primary/30 to-accent/30 animate-blob blur-3xl opacity-60"
           style={{ transform: `translate(${parallax.x}px, ${parallax.y}px)` }}
         />
         <div
-          className="pointer-events-none absolute -bottom-32 left-10 h-72 w-72 bg-gradient-to-br from-blush/50 to-peach/50 animate-blob blur-3xl opacity-50"
+          className="pointer-events-none absolute bottom-10 left-10 h-80 w-80 bg-gradient-to-br from-blush/40 to-peach/40 animate-blob blur-3xl opacity-50"
           style={{ transform: `translate(${-parallax.x}px, ${-parallax.y}px)`, animationDelay: "-6s" }}
         />
-        <PawPrint
-          className="pointer-events-none absolute top-32 right-[18%] h-10 w-10 text-primary/40 animate-float hidden md:block"
-          style={{ animationDelay: "-2s" }}
-        />
-        <PawPrint
-          className="pointer-events-none absolute bottom-40 right-[28%] h-7 w-7 text-accent/50 animate-float hidden md:block"
-          style={{ animationDelay: "-4s" }}
-        />
-        <Heart
-          className="pointer-events-none absolute top-[28%] right-[10%] h-8 w-8 text-blush/70 fill-blush/40 animate-float hidden md:block"
-        />
 
-        <div className="relative z-10 mx-auto max-w-7xl h-full px-5 sm:px-8 flex items-center">
-          <div key={slide} className="max-w-2xl animate-fade-up">
-            <span className="inline-flex items-center gap-2 rounded-full bg-card/80 backdrop-blur px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary shadow-soft animate-slide-left">
-              <PawPrint className="h-3.5 w-3.5 animate-wiggle" /> Pawsome Puppies
-            </span>
-            <h1 className="mt-5 font-display text-5xl sm:text-6xl lg:text-7xl font-black leading-[1.05] animate-slide-left" style={{ animationDelay: "0.1s" }}>
-              <span className="bg-gradient-to-r from-foreground via-primary to-accent bg-clip-text text-transparent animate-gradient">
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-5 sm:px-8 py-8 lg:py-16 grid lg:grid-cols-12 gap-8 items-center my-auto">
+          {/* Left Column: Hero Copy & Main CTAs */}
+          <div key={slide} className="lg:col-span-7 space-y-6 animate-fade-up">
+            
+            {/* Live Status & Social Proof Bar */}
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 px-3.5 py-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400 backdrop-blur shadow-xs">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                LIVE: 15+ Puppies Available Today in Delhi NCR
+              </span>
+
+              {/* Social Proof Avatar Stack */}
+              <div className="inline-flex items-center gap-2.5 rounded-full bg-card/90 border border-border/80 px-3.5 py-1 text-xs font-semibold shadow-soft backdrop-blur">
+                <div className="flex -space-x-2 overflow-hidden">
+                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-background object-cover" src={tImage1} alt="Customer" />
+                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-background object-cover" src={tImage2} alt="Customer" />
+                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-background object-cover" src={tImage3} alt="Customer" />
+                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-background object-cover" src={tImage4} alt="Customer" />
+                </div>
+                <div className="flex items-center gap-1 text-amber-500 font-bold">
+                  <Star className="h-3.5 w-3.5 fill-amber-400" /> 4.9/5
+                </div>
+                <span className="text-muted-foreground text-[11px]">(500+ Pet Parents)</span>
+              </div>
+            </div>
+
+            {/* Headline */}
+            <h1 className="font-display text-4xl sm:text-6xl lg:text-6xl font-black leading-[1.08] tracking-tight">
+              <span className="bg-gradient-to-r from-foreground via-foreground/90 to-primary bg-clip-text text-transparent">
                 {slides[slide].title}
               </span>
             </h1>
-            <p className="mt-5 text-lg sm:text-xl text-muted-foreground max-w-xl animate-slide-left" style={{ animationDelay: "0.25s" }}>
+
+            {/* Subtitle */}
+            <p className="text-base sm:text-xl text-muted-foreground leading-relaxed max-w-2xl font-medium">
               {slides[slide].sub}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3 animate-slide-left" style={{ animationDelay: "0.4s" }}>
-              <a href="#puppies"
-                className="group inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-accent text-primary-foreground px-7 py-3.5 font-semibold shadow-soft hover:shadow-card hover:-translate-y-1 hover:scale-105 transition-all duration-300">
-                View Puppies
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </a>
-              <a href={waLink("Hi! I'd love to know more about your puppies.")}
-                target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-7 py-3.5 font-semibold shadow-[0_4px_20px_rgba(37,211,102,0.45)] hover:shadow-[0_6px_28px_rgba(37,211,102,0.65)] hover:-translate-y-1 hover:scale-105 transition-all duration-300">
-                <svg viewBox="0 0 24 24" className="h-4 w-4" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp Us
-              </a>
-              <a href="tel:+917678494050"
-                className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#0EA5E9] to-[#6366F1] text-white px-7 py-3.5 font-semibold shadow-[0_4px_20px_rgba(99,102,241,0.4)] hover:shadow-[0_6px_28px_rgba(99,102,241,0.6)] hover:-translate-y-1 hover:scale-105 transition-all duration-300">
-                <Phone className="h-4 w-4 fill-white text-white" /> Call Us
-              </a>
+
+            {/* Trust Badges Bullet Points */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
+              {[
+                { icon: ShieldCheck, label: "100% Health Guarantee" },
+                { icon: Stethoscope, label: "Vet Certified & Vaccinated" },
+                { icon: Award, label: "KCI Registered Lineage" },
+                { icon: Truck, label: "Doorstep Delivery NCR" },
+                { icon: Headphones, label: "24/7 Lifetime Support" },
+                { icon: Tag, label: "Zero Hidden Charges" },
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-foreground/80 bg-card/60 backdrop-blur border border-border/50 rounded-xl px-3 py-2 shadow-xs">
+                  <item.icon className="h-4 w-4 text-primary shrink-0" />
+                  <span>{item.label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* PRIMARY CTA CLUSTER */}
+            <div className="pt-3 space-y-3">
+              <div className="flex flex-wrap items-center gap-3.5">
+                {/* CTA 1: Browse Puppies */}
+                <a href="#puppies"
+                  className="cta-shimmer-btn group inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground px-8 py-4 font-bold text-base shadow-card hover:shadow-xl hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+                  <PawPrint className="h-5 w-5 animate-wiggle" />
+                  Explore Puppies
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1.5 transition-transform" />
+                </a>
+
+                {/* CTA 2: WhatsApp Breeder */}
+                <a href={waLink("Hi! I'd love to check current puppy price list and availability.")}
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-7 py-4 font-bold text-base shadow-[0_6px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_8px_32px_rgba(37,211,102,0.6)] hover:-translate-y-1 hover:scale-105 transition-all duration-300">
+                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  WhatsApp Breeder
+                </a>
+
+                {/* CTA 3: Call Us Direct */}
+                <a href="tel:+917678494050"
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 text-white px-6 py-4 font-bold text-sm hover:bg-slate-800 shadow-soft hover:-translate-y-1 transition-all duration-300">
+                  <Phone className="h-4 w-4 text-emerald-400 fill-emerald-400" />
+                  +91 7678494050
+                </a>
+              </div>
+
+              {/* SECONDARY QUICK ACTION PILLS */}
+              <div className="flex flex-wrap items-center gap-2 pt-2">
+                <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider mr-1">Quick Actions:</span>
+                <a href={waLink("Hi! Please send me the puppy price list.")}
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-card/80 border border-border px-3 py-1.5 text-xs font-semibold hover:border-primary hover:text-primary transition-all">
+                  <FileText className="h-3.5 w-3.5 text-accent" /> Get Price List
+                </a>
+                <a href="https://www.google.com/maps/search/Dwarka+Sector+10+New+Delhi" target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-card/80 border border-border px-3 py-1.5 text-xs font-semibold hover:border-primary hover:text-primary transition-all">
+                  <MapPin className="h-3.5 w-3.5 text-primary" /> Visit Dwarka Hub
+                </a>
+                <a href="#about"
+                  className="inline-flex items-center gap-1.5 rounded-lg bg-card/80 border border-border px-3 py-1.5 text-xs font-semibold hover:border-primary hover:text-primary transition-all">
+                  <BadgeCheck className="h-3.5 w-3.5 text-emerald-500" /> Verification Process
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Right Column: Floating Trust Cards & Visual Showcase */}
+          <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
+            <div className="relative w-full max-w-md space-y-4">
+              
+              {/* Floating Trust Card 1: Verified Review */}
+              <div className="glass-trust-card rounded-2xl p-4 animate-pulse-badge">
+                <div className="flex items-start gap-3">
+                  <img src={tImage1} alt="Verified Owner" className="h-11 w-11 rounded-full object-cover ring-2 ring-primary/40 shrink-0" />
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between">
+                      <h4 className="font-bold text-sm text-foreground">Aarav Sharma (Gurgaon)</h4>
+                      <div className="flex items-center gap-0.5 text-amber-500">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="h-3 w-3 fill-amber-400 text-amber-400" />
+                        ))}
+                      </div>
+                    </div>
+                    <p className="text-xs text-muted-foreground leading-snug font-medium">
+                      "Bringing Milo home was so seamless. He arrived 100% vet-checked & active!"
+                    </p>
+                    <span className="inline-block text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider bg-emerald-500/10 px-2 py-0.5 rounded-md">
+                      ✓ Verified Golden Retriever Owner
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating Trust Card 2: Vet Guarantee */}
+              <div className="glass-trust-card rounded-2xl p-4 flex items-center gap-3.5">
+                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 grid place-items-center text-white shrink-0 shadow-soft">
+                  <Stethoscope className="h-6 w-6" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm text-foreground flex items-center gap-1.5">
+                    100% Vet Health Certified <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                  </h4>
+                  <p className="text-xs text-muted-foreground font-medium mt-0.5">
+                    Complete vaccination passport & 30-day health guarantee with every puppy.
+                  </p>
+                </div>
+              </div>
+
+              {/* Floating Trust Card 3: Safe Delivery */}
+              <div className="glass-trust-card rounded-2xl p-4 flex items-center gap-3.5">
+                <div className="h-12 w-12 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 grid place-items-center text-white shrink-0 shadow-soft">
+                  <Truck className="h-6 w-6" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-sm text-foreground">Safe Doorstep Delivery NCR</h4>
+                  <p className="text-xs text-muted-foreground font-medium mt-0.5">
+                    Climate-controlled pet transport to Delhi, Gurgaon, Noida, Ghaziabad & Faridabad.
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
 
-        {/* slide dots + progress */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex gap-2 items-center">
+        {/* BOTTOM HERO STATS & TRUST STRIP */}
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-5 sm:px-8 mt-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 bg-card/90 backdrop-blur-md border border-border/80 rounded-2xl p-4 shadow-soft">
+            <div className="flex items-center gap-3 p-2">
+              <div className="h-10 w-10 rounded-xl bg-primary/10 grid place-items-center text-primary font-bold">
+                <Users className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-lg font-black text-foreground">500+</div>
+                <div className="text-xs font-semibold text-muted-foreground">Happy Dog Families</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-2">
+              <div className="h-10 w-10 rounded-xl bg-amber-500/10 grid place-items-center text-amber-500 font-bold">
+                <Star className="h-5 w-5 fill-amber-400" />
+              </div>
+              <div>
+                <div className="text-lg font-black text-foreground">4.9 / 5.0</div>
+                <div className="text-xs font-semibold text-muted-foreground">Google Customer Rating</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-2">
+              <div className="h-10 w-10 rounded-xl bg-emerald-500/10 grid place-items-center text-emerald-500 font-bold">
+                <ShieldCheck className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-lg font-black text-foreground">100% Guaranteed</div>
+                <div className="text-xs font-semibold text-muted-foreground">Vet Checked & Vaccinated</div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 p-2">
+              <div className="h-10 w-10 rounded-xl bg-accent/10 grid place-items-center text-accent font-bold">
+                <Headphones className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="text-lg font-black text-foreground">24 / 7</div>
+                <div className="text-xs font-semibold text-muted-foreground">Lifetime Vet Advice</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Slide navigation controls */}
+        <div className="absolute bottom-4 right-8 z-10 hidden lg:flex gap-2 items-center">
           {slides.map((_, i) => (
             <button key={i} onClick={() => setSlide(i)}
               className={`relative h-2 rounded-full overflow-hidden transition-all duration-500 ${
-                i === slide ? "w-14 bg-foreground/15" : "w-2 bg-foreground/30 hover:bg-foreground/50"
+                i === slide ? "w-12 bg-primary" : "w-2 bg-foreground/30 hover:bg-foreground/50"
               }`}
               aria-label={`Slide ${i + 1}`}>
               {i === slide && (
-                <span key={slide} className="absolute inset-y-0 left-0 progress-bar bg-gradient-to-r from-primary to-accent" />
+                <span key={slide} className="absolute inset-y-0 left-0 progress-bar bg-accent" />
               )}
             </button>
           ))}
         </div>
-
-        {/* scroll indicator */}
-        <a href="#puppies" className="absolute bottom-8 right-8 z-10 hidden md:flex flex-col items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground/60 hover:text-primary transition-colors">
-          Scroll
-          <span className="h-10 w-px bg-gradient-to-b from-foreground/60 to-transparent animate-pulse" />
-        </a>
       </section>
 
       {/* PUPPIES */}
@@ -560,25 +775,43 @@ function Home() {
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-7">
             {puppies.map((p, idx) => (
-              <article key={p.id} style={{ transitionDelay: `${idx * 80}ms` }} className="reveal group rounded-2xl sm:rounded-3xl bg-card shadow-soft hover:shadow-card transition-all hover:-translate-y-2 hover:rotate-[-0.5deg] duration-500 overflow-hidden border border-border">
+              <article
+                key={p.id}
+                style={{ transitionDelay: `${idx * 80}ms` }}
+                onClick={() => setSelectedPuppy(p)}
+                className="reveal group rounded-2xl sm:rounded-3xl bg-card shadow-soft hover:shadow-card transition-all hover:-translate-y-2 hover:rotate-[-0.5deg] duration-500 overflow-hidden border border-border cursor-pointer flex flex-col justify-between"
+              >
                 <div className="relative aspect-square overflow-hidden">
                   <img src={p.img} alt={p.breed} loading="lazy" width={800} height={800}
                     className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute top-3 right-3 bg-black/60 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
+                    <Sparkles className="h-3 w-3 text-amber-400" /> View Breed Details
+                  </div>
+                  <div className="absolute bottom-3 left-3 bg-card/90 backdrop-blur text-foreground text-[10px] font-bold px-2.5 py-1 rounded-full border border-border/80 shadow-xs">
+                    100% Purebred • Vet Checked
+                  </div>
                 </div>
-                <div className="p-3 sm:p-6 flex flex-col justify-between min-h-[160px] sm:min-h-[190px]">
+                <div className="p-3 sm:p-6 flex flex-col justify-between flex-1">
                   <div>
                     <h3 className="font-display text-base sm:text-2xl font-black text-foreground group-hover:text-primary transition-colors">{p.breed}</h3>
                     <p className="mt-1 text-[11px] sm:text-sm leading-relaxed text-muted-foreground line-clamp-2">{p.desc}</p>
                   </div>
-                  <div className="mt-3 flex flex-col sm:flex-row gap-2">
-                    <a href="tel:+917678494050"
-                      className="inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl border border-neutral-200 bg-white text-black py-2 sm:py-2.5 text-[11px] sm:text-sm font-bold shadow-sm hover:bg-neutral-50 transition-colors w-full sm:flex-1">
-                      <Phone className="h-3.5 w-3.5" /> Call Now
+                  
+                  {/* TWO MANDATORY BUTTONS ON CARD */}
+                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2" onClick={(e) => e.stopPropagation()}>
+                    <a
+                      href="tel:+917678494050"
+                      className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white py-2 sm:py-2.5 px-2 text-[11px] sm:text-xs font-bold shadow-sm hover:opacity-95 hover:scale-[1.02] transition-all w-full text-center"
+                    >
+                      <Phone className="h-3.5 w-3.5 shrink-0 text-emerald-200" /> Call for Enquiry
                     </a>
-                    <a href={waLink(`Hi! I'm interested in a ${p.breed} puppy.`)}
-                      target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 rounded-lg sm:rounded-xl bg-[#25D366] text-white py-2 sm:py-2.5 text-[11px] sm:text-sm font-bold shadow-sm hover:opacity-90 transition-opacity w-full sm:flex-1">
-                      <MessageCircle className="h-3.5 w-3.5 fill-white text-white" /> WhatsApp
+                    <a
+                      href={waLink(`Hi! Please send me recent photos of available ${p.breed} puppies.`)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-primary to-accent text-primary-foreground py-2 sm:py-2.5 px-2 text-[11px] sm:text-xs font-bold shadow-sm hover:opacity-95 hover:scale-[1.02] transition-all w-full text-center"
+                    >
+                      <Camera className="h-3.5 w-3.5 shrink-0" /> Puppy Images
                     </a>
                   </div>
                 </div>
@@ -1087,6 +1320,124 @@ function Home() {
           </a>
         </div>
       </div>
+
+      {/* BREED DETAIL DEDICATED PAGE / MODAL */}
+      {selectedPuppy && (
+        <div
+          className="fixed inset-0 z-[90] flex items-center justify-center p-4 sm:p-6 bg-black/75 backdrop-blur-md animate-fade-in"
+          onClick={() => setSelectedPuppy(null)}
+        >
+          <div
+            className="relative w-full max-w-2xl bg-card border border-border rounded-3xl shadow-2xl overflow-hidden max-h-[92vh] flex flex-col animate-fade-up"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={() => setSelectedPuppy(null)}
+              className="absolute top-4 right-4 z-20 grid place-items-center h-10 w-10 rounded-full bg-black/60 text-white hover:bg-black transition-colors shadow-md"
+              aria-label="Close modal"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <div className="overflow-y-auto p-5 sm:p-8 space-y-6">
+              {/* Header Image Showcase */}
+              <div className="relative aspect-video sm:aspect-[16/9] rounded-2xl overflow-hidden border border-border/60 shadow-soft">
+                <img
+                  src={selectedPuppy.img}
+                  alt={selectedPuppy.breed}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500 text-white text-xs font-bold px-3 py-1 mb-2 backdrop-blur shadow-xs">
+                    <BadgeCheck className="h-3.5 w-3.5" /> Vet Checked & Ready for Home
+                  </span>
+                  <h2 className="text-3xl sm:text-4xl font-black font-display tracking-tight text-white">{selectedPuppy.breed}</h2>
+                </div>
+              </div>
+
+              {/* Breed Badges & Description */}
+              <div className="space-y-3">
+                <div className="flex flex-wrap gap-2 text-xs font-semibold">
+                  <span className="bg-primary/10 text-primary px-3 py-1.5 rounded-xl border border-primary/20">
+                    Status: 100% Vet Checked & Vaccinated
+                  </span>
+                  <span className="bg-amber-500/10 text-amber-600 dark:text-amber-400 px-3 py-1.5 rounded-xl border border-amber-500/20">
+                    Lineage: Purebred KCI Pedigree
+                  </span>
+                  <span className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-3 py-1.5 rounded-xl border border-emerald-500/20">
+                    Location: Dwarka Hub & Delhi NCR Delivery
+                  </span>
+                </div>
+
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed font-medium">
+                  {selectedPuppy.desc} Our {selectedPuppy.breed} puppies are raised by certified ethical breeders in Delhi NCR, fully dewormed, vet-examined from day one, and delivered safely to your doorstep.
+                </p>
+              </div>
+
+              {/* Guaranteed Health Box */}
+              <div className="grid grid-cols-2 gap-2.5 bg-secondary/50 p-4 rounded-2xl border border-border text-xs font-semibold">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="h-4 w-4 text-emerald-500 shrink-0" />
+                  <span>100% Health Guarantee</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Stethoscope className="h-4 w-4 text-primary shrink-0" />
+                  <span>Vaccination Passport Included</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Award className="h-4 w-4 text-amber-500 shrink-0" />
+                  <span>KCI Pedigree Validation</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Truck className="h-4 w-4 text-accent shrink-0" />
+                  <span>Climate-Controlled Transport</span>
+                </div>
+              </div>
+
+              {/* TWO MANDATORY BUTTONS REQUESTED BY USER */}
+              <div className="pt-3 space-y-3 border-t border-border/60">
+                <div className="text-center sm:text-left">
+                  <h3 className="text-sm font-bold text-foreground">Connect with Breeder Directly</h3>
+                  <p className="text-xs text-muted-foreground">Select an option below to connect instantly on WhatsApp</p>
+                </div>
+                
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {/* Button 1: Call for Enquiry */}
+                  <a
+                    href="tel:+917678494050"
+                    className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white px-5 py-4 font-bold text-sm shadow-soft hover:shadow-card hover:-translate-y-0.5 transition-all duration-300 text-center"
+                  >
+                    <Phone className="h-5 w-5 text-emerald-200" />
+                    Call for Enquiry
+                  </a>
+
+                  {/* Button 2: Get Puppy Images */}
+                  <a
+                    href={waLink(`Hi! Please send me recent photos of available ${selectedPuppy.breed} puppies.`)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-primary to-accent text-primary-foreground px-5 py-4 font-bold text-sm shadow-soft hover:shadow-card hover:-translate-y-0.5 transition-all duration-300 text-center"
+                  >
+                    <Camera className="h-5 w-5" />
+                    Get Puppy Images
+                  </a>
+                </div>
+
+                <div className="pt-2 flex justify-center">
+                  <button
+                    onClick={() => setSelectedPuppy(null)}
+                    className="text-xs font-bold text-muted-foreground hover:text-foreground underline transition-colors"
+                  >
+                    ← Back to All Puppies
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Thank You / Lead Conversion Success Modal */}
       {showThankYou && (
