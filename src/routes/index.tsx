@@ -41,6 +41,21 @@ import maltipoo from "@/assets/maltipoo.png";
 import dachshund from "@/assets/dachshund.png";
 import akita from "@/assets/akita.png";
 import chowChow from "@/assets/chow-chow.png";
+import pomeranian from "@/assets/pomeranian.png";
+import rottweiler from "@/assets/rottweiler.png";
+import cockerSpaniel from "@/assets/cocker-spaniel.png";
+import boxer from "@/assets/boxer.png";
+import doberman from "@/assets/doberman.png";
+import lhasaApso from "@/assets/lhasa-apso.png";
+import saintBernard from "@/assets/saint-bernard.png";
+import americanBully from "@/assets/american-bully.png";
+import bullmastiff from "@/assets/bullmastiff.png";
+import samoyed from "@/assets/samoyed.png";
+import cavalierSpaniel from "@/assets/cavalier-spaniel.png";
+import chihuahua from "@/assets/chihuahua.png";
+import dalmatian from "@/assets/dalmatian.png";
+import caneCorso from "@/assets/cane-corso.jpg";
+import greatDane from "@/assets/great-dane.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -97,6 +112,21 @@ const puppies: Puppy[] = [
   { id: 14, breed: "Dachshund", price: 950, img: dachshund, desc: "Lively, clever, courageous, and famously shape-distinctive." },
   { id: 15, breed: "Akita", price: 1800, img: akita, desc: "Dignified, courageous, quiet, and deeply loyal to families." },
   { id: 16, breed: "Chow Chow", price: 1600, img: chowChow, desc: "Dignified, bear-like appearance, independent, and quiet." },
+  { id: 17, breed: "Pomeranian", price: 850, img: pomeranian, desc: "Fluffy, lively, extra affectionate, and ideal for compact homes." },
+  { id: 18, breed: "Rottweiler", price: 1400, img: rottweiler, desc: "Confident, loyal, powerful guardian, and deeply devoted." },
+  { id: 19, breed: "Cocker Spaniel", price: 1100, img: cockerSpaniel, desc: "Silky-eared, gentle, active, and cheerful family companion." },
+  { id: 20, breed: "Boxer", price: 1200, img: boxer, desc: "Energetic, courageous, playful, and protective family dog." },
+  { id: 21, breed: "Doberman Pinscher", price: 1350, img: doberman, desc: "Sleek, highly intelligent, vigilant, and alert protector." },
+  { id: 22, breed: "Lhasa Apso", price: 950, img: lhasaApso, desc: "Joyful, regal, sturdy, and wonderful companion for apartments." },
+  { id: 23, breed: "Saint Bernard", price: 2200, img: saintBernard, desc: "Gentle giant, patient, calm, and famously friendly with children." },
+  { id: 24, breed: "American Bully", price: 1700, img: americanBully, desc: "Strong, confident, extremely friendly, and loving family pet." },
+  { id: 25, breed: "Bullmastiff", price: 1900, img: bullmastiff, desc: "Powerful, fearless, confident, and a gentle family protector." },
+  { id: 26, breed: "Samoyed", price: 2100, img: samoyed, desc: "Smiling arctic breed, fluffy pure-white coat, and friendly." },
+  { id: 27, breed: "Cavalier King Charles Spaniel", price: 1650, img: cavalierSpaniel, desc: "Graceful, affectionate, regal lap dog with silky ears." },
+  { id: 28, breed: "Chihuahua", price: 900, img: chihuahua, desc: "Tiny size, big personality, graceful, and fiercely loyal." },
+  { id: 29, breed: "Dalmatian", price: 1300, img: dalmatian, desc: "Distinctive spotted coat, athletic, outgoing, and playful." },
+  { id: 30, breed: "Cane Corso", price: 2400, img: caneCorso, desc: "Majestic Italian mastiff, powerful, alert, and deeply loyal." },
+  { id: 31, breed: "Great Dane", price: 2300, img: greatDane, desc: "Majestic giant, friendly, patient, elegant, and gentle." },
 ];
 
 const features = [
