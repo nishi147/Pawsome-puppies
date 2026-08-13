@@ -426,34 +426,6 @@ function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(SEO_SCHEMAS) }}
       />
-      {/* TOP TRUST BANNER */}
-      <div className="bg-slate-950 text-slate-100 border-b border-slate-800 text-xs py-2 px-4 relative z-50">
-        <div className="mx-auto max-w-7xl flex flex-wrap items-center justify-between gap-2">
-          <div className="flex items-center gap-3 flex-wrap">
-            <span className="inline-flex items-center gap-1.5 font-bold text-amber-400">
-              <Star className="h-3.5 w-3.5 fill-amber-400" /> 4.9/5 Rating
-            </span>
-            <span className="hidden sm:inline text-slate-700">•</span>
-            <span className="inline-flex items-center gap-1 text-emerald-400 font-semibold">
-              <BadgeCheck className="h-3.5 w-3.5 text-emerald-400" /> 500+ Verified Families in Delhi NCR
-            </span>
-            <span className="hidden md:inline text-slate-700">•</span>
-            <span className="hidden md:inline-flex items-center gap-1 text-sky-300 font-medium">
-              <ShieldCheck className="h-3.5 w-3.5 text-sky-400" /> KCI Certified & Vet Checked
-            </span>
-          </div>
-          <div className="flex items-center gap-3 text-[11px] font-medium">
-            <span className="hidden lg:inline text-slate-400">📍 Dwarka Hub • Delhi NCR Doorstep Delivery</span>
-            <a
-              href="tel:+917678494050"
-              className="inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 font-bold transition-colors"
-            >
-              <Phone className="h-3 w-3" /> +91 7678494050
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* NAV */}
       <header
         className={`sticky top-0 inset-x-0 z-50 transition-all duration-300 ${
@@ -512,7 +484,7 @@ function Home() {
       </header>
 
       {/* HERO */}
-      <section id="home" className="relative min-h-[90vh] lg:min-h-[820px] w-full overflow-hidden flex flex-col justify-between pt-8 pb-12">
+      <section id="home" className="relative min-h-0 sm:min-h-[90vh] lg:min-h-[820px] w-full overflow-hidden flex flex-col justify-between pt-4 sm:pt-8 pb-6 sm:pb-12">
         {slides.map((s, i) => (
           <div
             key={i}
@@ -527,108 +499,107 @@ function Home() {
               width={1536}
               height={1024}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/30 lg:to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/30 lg:to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40" />
           </div>
         ))}
 
         {/* Decorative Parallax Blobs */}
         <div
-          className="pointer-events-none absolute -top-20 -right-20 h-96 w-96 bg-gradient-to-br from-primary/30 to-accent/30 animate-blob blur-3xl opacity-60"
+          className="pointer-events-none absolute -top-20 -right-20 h-72 sm:h-96 w-72 sm:w-96 bg-gradient-to-br from-primary/30 to-accent/30 animate-blob blur-3xl opacity-60"
           style={{ transform: `translate(${parallax.x}px, ${parallax.y}px)` }}
         />
         <div
-          className="pointer-events-none absolute bottom-10 left-10 h-80 w-80 bg-gradient-to-br from-blush/40 to-peach/40 animate-blob blur-3xl opacity-50"
+          className="pointer-events-none absolute bottom-10 left-10 h-60 sm:h-80 w-60 sm:w-80 bg-gradient-to-br from-blush/40 to-peach/40 animate-blob blur-3xl opacity-50"
           style={{ transform: `translate(${-parallax.x}px, ${-parallax.y}px)`, animationDelay: "-6s" }}
         />
 
-        <div className="relative z-10 mx-auto max-w-7xl w-full px-5 sm:px-8 py-8 lg:py-16 grid lg:grid-cols-12 gap-8 items-center my-auto">
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-8 py-4 sm:py-8 lg:py-16 grid lg:grid-cols-12 gap-5 sm:gap-8 items-center my-auto">
           {/* Left Column: Hero Copy & Main CTAs */}
-          <div key={slide} className="lg:col-span-7 space-y-6 animate-fade-up">
+          <div key={slide} className="lg:col-span-7 space-y-3.5 sm:space-y-6 animate-fade-up">
             
             {/* Live Status & Social Proof Bar */}
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 border border-emerald-500/30 px-3.5 py-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400 backdrop-blur shadow-xs">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 sm:px-3.5 sm:py-1.5 text-[11px] sm:text-xs font-bold text-emerald-700 dark:text-emerald-400 backdrop-blur shadow-xs">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
                 </span>
-                LIVE: 15+ Puppies Available Today in Delhi NCR
+                LIVE: 15+ Puppies Available Today
               </span>
 
               {/* Social Proof Avatar Stack */}
-              <div className="inline-flex items-center gap-2.5 rounded-full bg-card/90 border border-border/80 px-3.5 py-1 text-xs font-semibold shadow-soft backdrop-blur">
-                <div className="flex -space-x-2 overflow-hidden">
-                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-background object-cover" src={tImage1} alt="Customer" />
-                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-background object-cover" src={tImage2} alt="Customer" />
-                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-background object-cover" src={tImage3} alt="Customer" />
-                  <img className="inline-block h-6 w-6 rounded-full ring-2 ring-background object-cover" src={tImage4} alt="Customer" />
+              <div className="inline-flex items-center gap-2 rounded-full bg-card/90 border border-border/80 px-2.5 py-0.5 sm:px-3.5 sm:py-1 text-[11px] sm:text-xs font-semibold shadow-soft backdrop-blur">
+                <div className="flex -space-x-1.5 sm:-space-x-2 overflow-hidden">
+                  <img className="inline-block h-5 w-5 sm:h-6 sm:w-6 rounded-full ring-2 ring-background object-cover" src={tImage1} alt="Customer" />
+                  <img className="inline-block h-5 w-5 sm:h-6 sm:w-6 rounded-full ring-2 ring-background object-cover" src={tImage2} alt="Customer" />
+                  <img className="inline-block h-5 w-5 sm:h-6 sm:w-6 rounded-full ring-2 ring-background object-cover" src={tImage3} alt="Customer" />
                 </div>
                 <div className="flex items-center gap-1 text-amber-500 font-bold">
-                  <Star className="h-3.5 w-3.5 fill-amber-400" /> 4.9/5
+                  <Star className="h-3 w-3 sm:h-3.5 sm:w-3.5 fill-amber-400" /> 4.9/5
                 </div>
-                <span className="text-muted-foreground text-[11px]">(500+ Pet Parents)</span>
+                <span className="text-muted-foreground text-[10px] sm:text-[11px]">(500+)</span>
               </div>
             </div>
 
             {/* Headline */}
-            <h1 className="font-display text-4xl sm:text-6xl lg:text-6xl font-black leading-[1.08] tracking-tight">
+            <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-black leading-[1.1] sm:leading-[1.08] tracking-tight">
               <span className="bg-gradient-to-r from-foreground via-foreground/90 to-primary bg-clip-text text-transparent">
                 {slides[slide].title}
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-xl text-muted-foreground leading-relaxed max-w-2xl font-medium">
+            <p className="text-xs sm:text-lg text-muted-foreground leading-normal sm:leading-relaxed max-w-2xl font-medium line-clamp-3 sm:line-clamp-none">
               {slides[slide].sub}
             </p>
 
             {/* Trust Badges Bullet Points */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-1">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2.5 pt-0.5 sm:pt-1">
               {[
                 { icon: ShieldCheck, label: "100% Health Guarantee" },
-                { icon: Stethoscope, label: "Vet Certified & Vaccinated" },
+                { icon: Stethoscope, label: "Vet Checked & Vaccinated" },
                 { icon: Award, label: "KCI Registered Lineage" },
                 { icon: Truck, label: "Doorstep Delivery NCR" },
                 { icon: Headphones, label: "24/7 Lifetime Support" },
                 { icon: Tag, label: "Zero Hidden Charges" },
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-xs font-semibold text-foreground/80 bg-card/60 backdrop-blur border border-border/50 rounded-xl px-3 py-2 shadow-xs">
-                  <item.icon className="h-4 w-4 text-primary shrink-0" />
-                  <span>{item.label}</span>
+                <div key={idx} className="flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold text-foreground/80 bg-card/60 backdrop-blur border border-border/50 rounded-lg sm:rounded-xl px-2.5 py-1.5 sm:px-3 sm:py-2 shadow-xs">
+                  <item.icon className="h-3.5 w-3.5 text-primary shrink-0" />
+                  <span className="truncate">{item.label}</span>
                 </div>
               ))}
             </div>
 
             {/* PRIMARY CTA CLUSTER */}
-            <div className="pt-3 space-y-3">
-              <div className="flex flex-wrap items-center gap-3.5">
+            <div className="pt-2 sm:pt-3 space-y-2 sm:space-y-3">
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center gap-2 sm:gap-3.5">
                 {/* CTA 1: Browse Puppies */}
                 <a href="#puppies"
-                  className="cta-shimmer-btn group inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground px-8 py-4 font-bold text-base shadow-card hover:shadow-xl hover:-translate-y-1 hover:scale-105 transition-all duration-300">
-                  <PawPrint className="h-5 w-5 animate-wiggle" />
+                  className="cta-shimmer-btn group inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-full bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground px-4 py-3 sm:px-8 sm:py-4 font-bold text-xs sm:text-base shadow-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300 col-span-2 sm:col-auto">
+                  <PawPrint className="h-4 w-4 sm:h-5 sm:w-5 animate-wiggle shrink-0" />
                   Explore Puppies
-                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1.5 transition-transform" />
+                  <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4 group-hover:translate-x-1.5 transition-transform" />
                 </a>
 
                 {/* CTA 2: WhatsApp Breeder */}
                 <a href={waLink("Hi! I'd love to check current puppy price list and availability.")}
                   target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-7 py-4 font-bold text-base shadow-[0_6px_25px_rgba(37,211,102,0.4)] hover:shadow-[0_8px_32px_rgba(37,211,102,0.6)] hover:-translate-y-1 hover:scale-105 transition-all duration-300">
-                  <svg viewBox="0 0 24 24" className="h-5 w-5" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                  WhatsApp Breeder
+                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2.5 rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white px-3.5 py-3 sm:px-7 sm:py-4 font-bold text-xs sm:text-base shadow-[0_4px_15px_rgba(37,211,102,0.4)] hover:-translate-y-1 transition-all duration-300">
+                  <svg viewBox="0 0 24 24" className="h-4 w-4 sm:h-5 sm:w-5 shrink-0" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  WhatsApp
                 </a>
 
                 {/* CTA 3: Call Us Direct */}
                 <a href="tel:+917678494050"
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 text-white px-6 py-4 font-bold text-sm hover:bg-slate-800 shadow-soft hover:-translate-y-1 transition-all duration-300">
-                  <Phone className="h-4 w-4 text-emerald-400 fill-emerald-400" />
-                  +91 7678494050
+                  className="inline-flex items-center justify-center gap-1.5 sm:gap-2 rounded-full bg-slate-900 text-white px-3.5 py-3 sm:px-6 sm:py-4 font-bold text-xs sm:text-sm hover:bg-slate-800 shadow-soft hover:-translate-y-1 transition-all duration-300">
+                  <Phone className="h-3.5 w-3.5 text-emerald-400 fill-emerald-400 shrink-0" />
+                  Call Us
                 </a>
               </div>
 
               {/* SECONDARY QUICK ACTION PILLS */}
-              <div className="flex flex-wrap items-center gap-2 pt-2">
+              <div className="hidden sm:flex flex-wrap items-center gap-2 pt-2">
                 <span className="text-xs font-bold text-muted-foreground uppercase tracking-wider mr-1">Quick Actions:</span>
                 <a href={waLink("Hi! Please send me the puppy price list.")}
                   className="inline-flex items-center gap-1.5 rounded-lg bg-card/80 border border-border px-3 py-1.5 text-xs font-semibold hover:border-primary hover:text-primary transition-all">
@@ -647,8 +618,8 @@ function Home() {
 
           </div>
 
-          {/* Right Column: Floating Trust Cards & Visual Showcase */}
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
+          {/* Right Column: Floating Trust Cards (Shown on sm+ to keep mobile hero compact) */}
+          <div className="lg:col-span-5 relative hidden sm:flex justify-center lg:justify-end">
             <div className="relative w-full max-w-md space-y-4">
               
               {/* Floating Trust Card 1: Verified Review */}
@@ -707,42 +678,42 @@ function Home() {
         </div>
 
         {/* BOTTOM HERO STATS & TRUST STRIP */}
-        <div className="relative z-10 mx-auto max-w-7xl w-full px-5 sm:px-8 mt-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 bg-card/90 backdrop-blur-md border border-border/80 rounded-2xl p-4 shadow-soft">
-            <div className="flex items-center gap-3 p-2">
-              <div className="h-10 w-10 rounded-xl bg-primary/10 grid place-items-center text-primary font-bold">
-                <Users className="h-5 w-5" />
+        <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-8 mt-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 bg-card/90 backdrop-blur-md border border-border/80 rounded-xl sm:rounded-2xl p-2.5 sm:p-4 shadow-soft">
+            <div className="flex items-center gap-2 sm:gap-3 p-1 sm:p-2">
+              <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg sm:rounded-xl bg-primary/10 grid place-items-center text-primary font-bold shrink-0">
+                <Users className="h-4 w-4 sm:h-5 sm:w-5" />
               </div>
               <div>
-                <div className="text-lg font-black text-foreground">500+</div>
-                <div className="text-xs font-semibold text-muted-foreground">Happy Dog Families</div>
+                <div className="text-sm sm:text-lg font-black text-foreground">500+</div>
+                <div className="text-[10px] sm:text-xs font-semibold text-muted-foreground">Happy Families</div>
               </div>
             </div>
-            <div className="flex items-center gap-3 p-2">
-              <div className="h-10 w-10 rounded-xl bg-amber-500/10 grid place-items-center text-amber-500 font-bold">
-                <Star className="h-5 w-5 fill-amber-400" />
+            <div className="flex items-center gap-2 sm:gap-3 p-1 sm:p-2">
+              <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg sm:rounded-xl bg-amber-500/10 grid place-items-center text-amber-500 font-bold shrink-0">
+                <Star className="h-4 w-4 sm:h-5 sm:w-5 fill-amber-400" />
               </div>
               <div>
-                <div className="text-lg font-black text-foreground">4.9 / 5.0</div>
-                <div className="text-xs font-semibold text-muted-foreground">Google Customer Rating</div>
+                <div className="text-sm sm:text-lg font-black text-foreground">4.9 / 5.0</div>
+                <div className="text-[10px] sm:text-xs font-semibold text-muted-foreground">Google Rating</div>
               </div>
             </div>
-            <div className="flex items-center gap-3 p-2">
-              <div className="h-10 w-10 rounded-xl bg-emerald-500/10 grid place-items-center text-emerald-500 font-bold">
-                <ShieldCheck className="h-5 w-5" />
+            <div className="flex items-center gap-2 sm:gap-3 p-1 sm:p-2">
+              <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg sm:rounded-xl bg-emerald-500/10 grid place-items-center text-emerald-500 font-bold shrink-0">
+                <ShieldCheck className="h-4 w-4 sm:h-5 sm:w-5" />
               </div>
               <div>
-                <div className="text-lg font-black text-foreground">100% Guaranteed</div>
-                <div className="text-xs font-semibold text-muted-foreground">Vet Checked & Vaccinated</div>
+                <div className="text-sm sm:text-lg font-black text-foreground">100% Guaranteed</div>
+                <div className="text-[10px] sm:text-xs font-semibold text-muted-foreground">Vet Checked</div>
               </div>
             </div>
-            <div className="flex items-center gap-3 p-2">
-              <div className="h-10 w-10 rounded-xl bg-accent/10 grid place-items-center text-accent font-bold">
-                <Headphones className="h-5 w-5" />
+            <div className="flex items-center gap-2 sm:gap-3 p-1 sm:p-2">
+              <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg sm:rounded-xl bg-accent/10 grid place-items-center text-accent font-bold shrink-0">
+                <Headphones className="h-4 w-4 sm:h-5 sm:w-5" />
               </div>
               <div>
-                <div className="text-lg font-black text-foreground">24 / 7</div>
-                <div className="text-xs font-semibold text-muted-foreground">Lifetime Vet Advice</div>
+                <div className="text-sm sm:text-lg font-black text-foreground">24 / 7</div>
+                <div className="text-[10px] sm:text-xs font-semibold text-muted-foreground">Lifetime Support</div>
               </div>
             </div>
           </div>
@@ -786,9 +757,6 @@ function Home() {
                     className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700" />
                   <div className="absolute top-3 right-3 bg-black/60 backdrop-blur text-white text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
                     <Sparkles className="h-3 w-3 text-amber-400" /> View Breed Details
-                  </div>
-                  <div className="absolute bottom-3 left-3 bg-card/90 backdrop-blur text-foreground text-[10px] font-bold px-2.5 py-1 rounded-full border border-border/80 shadow-xs">
-                    100% Purebred • Vet Checked
                   </div>
                 </div>
                 <div className="p-3 sm:p-6 flex flex-col justify-between flex-1">
